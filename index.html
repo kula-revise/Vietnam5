@@ -156,7 +156,7 @@
     </div>
     <div class="score-row">
       <div class="score-block"><div class="score-num"><span id="r-correct">0</span><span class="score-den">/<span id="r-total">0</span></span></div><div class="score-label">Strongest choices</div></div>
-      <div class="score-block"><div class="score-num" id="r-band">-</div><div class="score-label">Standard</div></div>
+      <div class="score-block"><div class="score-num" id="r-band">-</div><div class="score-label">Verdict</div></div>
     </div>
     <div class="grade-desc" id="r-desc"></div>
     <div class="breakdown"><div class="breakdown-label">By essay skill</div><div id="r-breakdown"></div></div>
@@ -170,7 +170,7 @@
       convincing argument is the one who gets listened to. That is the whole point of learning to do this.</p>
     </div>
     <div class="nav" style="justify-content: center;"><button class="btn-primary" id="redo-btn">&#8635; Build it again</button></div>
-    <div class="footer">That completes the Vietnam series. Well argued.</div>
+    <div class="footer">Next: Knowledge Check 2, the same facts as the check you took at the start, to see what has stuck.</div>
   </div>
 </div>
 
@@ -383,11 +383,11 @@ function showResults(){
   assessedIds.forEach(i=>{ if(state.answers[i]===FLOW[i].correct) correct++; });
   const pct=totalQ?Math.round((correct/totalQ)*100):0;
   let band="-",desc="";
-  if(pct>=85){band="7";desc="Outstanding. You chose the strongest version of nearly every part. This is what a top-band essay is built from.";}
-  else if(pct>=70){band="6";desc="Strong. Your essay holds a clear, weighed line. Look back at any part you missed to see what lifted the model above it.";}
-  else if(pct>=55){band="5";desc="Solid. The shape is right. The gap between good and great is choosing the version that argues, not the one that describes.";}
-  else if(pct>=40){band="4";desc="A real start. Reread the model you built: notice how every strong part takes a position instead of just telling the story.";}
-  else {band="3";desc="Build it again, slowly. Each strong choice argues a point and holds the line; the weak ones describe or give up. That is the whole difference.";}
+  if(pct>=85){band="Excellent";desc="Outstanding. You chose the strongest version of nearly every part. This is what a top-band essay is built from.";}
+  else if(pct>=70){band="Strong";desc="Strong. Your essay holds a clear, weighed line. Look back at any part you missed to see what lifted the model above it.";}
+  else if(pct>=55){band="Solid";desc="Solid. The shape is right. The gap between good and great is choosing the version that argues, not the one that describes.";}
+  else if(pct>=40){band="Patchy";desc="A real start. Reread the model you built: notice how every strong part takes a position instead of just telling the story.";}
+  else {band="Start again";desc="Build it again, slowly. Each strong choice argues a point and holds the line; the weak ones describe or give up. That is the whole difference.";}
   document.getElementById("r-correct").textContent=correct;
   document.getElementById("r-total").textContent=totalQ;
   document.getElementById("r-band").textContent=band;
