@@ -448,9 +448,9 @@ const FLOW = [
   },
   {
     "type": "runsum",
-    "tag": "Your skeleton",
+    "tag": "Your running summary",
     "heading": "The Skeleton of Your Answer",
-    "label": "Your skeleton",
+    "label": "Your running summary",
     "html": "<p>Every line here is a topic sentence with the evidence that belongs to it. That is a skeleton, not a finished essay. Read it once for the shape: a stance in the opening, dated evidence in every paragraph, one paragraph arguing against you, and a verdict at the end that says how far.</p>",
     "outro": "Now read the next three screens. They tell you what this leaves out and what to do with it."
   },
@@ -917,7 +917,7 @@ function showResults(){
     const back=document.createElement("div");
     back.className="pop-back";
     const D = RESULTS.done||{};
-    back.innerHTML=`<div class="pop"><div class="pop-label">${esc(D.label||"Lesson complete")}</div>${D.title?`<h3 style="margin:.4rem 0 .2rem;font-size:1.05rem;">${esc(D.title)}</h3>`:""}<div class="pop-text">${esc(D.text||"Tap Done to continue.")}</div><button class="pop-btn" id="fin-ok">Got it</button></div>`;
+    back.innerHTML=`<div class="pop"><div class="pop-label">${esc(D.label||"Lesson complete")}</div>${D.title?`<h3 style="margin:.4rem 0 .2rem;font-size:1.05rem;">${esc(D.title)}</h3>`:""}<div class="pop-text">${esc(D.text||"Tap Done to continue.")}</div><button class="pop-btn" id="fin-ok">Done</button></div>`;
     document.body.appendChild(back);
     document.getElementById("fin-ok").addEventListener("click",()=>back.remove());
   });
