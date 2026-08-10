@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Build the Skeleton | The Cold War case study: Vietnam | Kula Revise</title>
+<title>Vietnam · Build the Skeleton</title>
 <style>
+
   /* ============================================================
      IDENTITY BLOCK. This is the ONLY block you edit per series.
      Everything below the block is the fixed mechanism and never changes.
@@ -248,697 +249,249 @@
 /* vt-cta */
 body.dark .btn-primary, body.dark #next-btn { color: #12150f !important; }
 body.dark .btn-primary .sa, body.dark #next-btn .sa, body.dark .btn-primary svg, body.dark #next-btn svg { color: #12150f !important; fill: #12150f !important; }
+
+.container{max-width:720px;margin:0 auto;padding:1.2rem 1.1rem 3rem;}
+.cap-intro{font-size:1.04rem;line-height:1.74;margin-bottom:1.1rem;}
+.yourpoint{background:var(--cut);border:1px solid rgba(var(--ink-c),0.12);border-left:4px solid var(--a2);padding:0.8rem 0.95rem;margin-bottom:1.1rem;font-family:var(--serif);font-size:1rem;line-height:1.5;}
+.yourpoint b{display:block;font-family:var(--sans);font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--a2);font-weight:700;margin-bottom:0.3rem;}
+.evlist{display:flex;flex-direction:column;gap:0.6rem;margin-bottom:1.2rem;}
+.evrow{display:flex;align-items:center;gap:0.85rem;padding:0.85rem 1rem;background:var(--sand);border:1px solid rgba(var(--ink-c),0.13);}
+.evrow .evtext{flex:1;font-family:var(--serif);font-size:1rem;line-height:1.55;}
+.evrow .evtext .off{display:block;font-family:var(--sans);font-size:0.78rem;color:var(--mute2);margin-top:0.2rem;}
+.evtoggle{font-family:var(--sans);font-size:0.78rem;font-weight:700;border:1px solid var(--a2);color:var(--a2);background:transparent;padding:0.4rem 0.85rem;cursor:pointer;min-height:38px;white-space:nowrap;}
+.evrow.use{border-color:var(--a1);border-width:2px;background:var(--cut);}
+.evrow.use .evtoggle{background:var(--a2);color:#F7F1E4;border-color:var(--a2);}
+.evrow.ok{border-color:var(--a2);border-width:2px;background:var(--opt-correct-bg);}
+.evrow.miss{border-color:var(--clay);border-style:dashed;border-width:2px;}
+.evrow.wrong{border-color:var(--clay);border-width:2px;background:var(--opt-wrong-bg);}
+.evtag{font-family:var(--sans);font-size:0.7rem;font-weight:700;letter-spacing:0.08em;}
+.evtag.y{color:var(--a2);} .evtag.n{color:var(--clay);}
+.frame{border:1px solid rgba(var(--ink-c),0.14);border-left:5px solid var(--a2);background:var(--cut);padding:1.2rem 1.3rem;margin-bottom:1.2rem;}
+.frame .fp{padding:0.7rem 0 0.95rem;border-bottom:1px dashed rgba(var(--ink-c),0.2);}
+.frame .fp:last-child{border-bottom:none;padding-bottom:0;}
+.frame .frole{font-family:var(--sans);font-size:0.62rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--a2);font-weight:700;margin-bottom:0.3rem;}
+.frame .fts{font-family:var(--serif);font-weight:700;font-size:1.02rem;line-height:1.5;margin-bottom:0.5rem;}
+.frame .flabel{font-family:var(--sans);font-size:0.66rem;font-weight:700;color:var(--mute2);letter-spacing:0.04em;text-transform:uppercase;margin-bottom:0.2rem;}
+.frame ul{margin:0.1rem 0 0.6rem;padding-left:1.15rem;}
+.frame li{font-family:var(--serif);margin-bottom:0.25rem;line-height:1.5;}
+.frame .flink{font-family:var(--serif);font-style:italic;color:var(--mute1);}
+.writeup{font-family:var(--sans);background:var(--paper);border:1px solid rgba(var(--a1-c),0.4);border-left:5px solid var(--a1);padding:1.1rem 1.2rem;}
+.writeup b{color:var(--a1);font-size:1.05rem;}
+.writeup .wsub{font-size:0.92rem;line-height:1.6;color:var(--mute1);margin-top:0.4rem;}
+.cap-prog{font-family:var(--sans);font-size:0.66rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--mute2);font-weight:700;margin-bottom:0.9rem;}
+.cap-actions{display:flex;justify-content:flex-end;}
+#kula-mode-toggle{position:fixed;top:0.7rem;right:0.7rem;z-index:60;font-family:var(--sans);font-size:0.7rem;font-weight:700;letter-spacing:0.06em;background:var(--cut);color:var(--ink);border:1px solid rgba(var(--ink-c),0.2);border-radius:20px;padding:0.4rem 0.9rem;cursor:pointer;min-height:34px;}
+#kula-mode-toggle:hover{border-color:var(--a2);}
+
+.btn-primary{background:var(--a2);color:#F7F1E4 !important;}
+body.dark .btn-primary{color:#12150f !important;}
+body.dark .evrow.use .evtoggle{color:#12150f;}
 </style>
 </head>
 <body>
-<style>#kula-mode-toggle{position:fixed;bottom:1.1rem;right:1.1rem;z-index:9999;display:inline-flex;align-items:center;gap:.45em;padding:.48rem .82rem;border-radius:999px;font-family:var(--sans);font-size:.7rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;cursor:pointer;-webkit-tap-highlight-color:transparent;line-height:1;background:#F4F6F8;color:#525C66;border:1px solid rgba(23,33,43,.15);box-shadow:0 2px 8px rgba(0,0,0,.10);transition:transform .15s ease,box-shadow .15s ease}#kula-mode-toggle:hover{transform:translateY(-1px)}#kula-mode-toggle svg{width:15px;height:15px;display:block;flex:0 0 auto}body.dark #kula-mode-toggle{background:#1B2026;color:#AEB8C4;border-color:rgba(220,232,244,.18)}</style><button id="kula-mode-toggle" type="button" onclick="kulaToggle()" aria-label="Switch between light and dark mode"><span id="kmt-icon"></span><span id="kmt-label"></span></button><script>(function(){var MOON="<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z'/></svg>",SUN="<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='4.2'/><path d='M12 1.6v2M12 20.4v2M3.6 12h-2M22.4 12h-2M5.6 5.6 4.2 4.2M19.8 19.8l-1.4-1.4M18.4 5.6l1.4-1.4M4.2 19.8l1.4-1.4'/></svg>",K="kula-theme";function paint(){var d=document.body.classList.contains("dark");var ic=document.getElementById("kmt-icon"),la=document.getElementById("kmt-label");if(ic)ic.innerHTML=d?SUN:MOON;if(la)la.textContent=d?"Light mode":"Dark mode"}window.kulaToggle=function(){document.body.classList.toggle("dark");try{localStorage.setItem(K,document.body.classList.contains("dark")?"dark":"light")}catch(e){}paint()};try{if(localStorage.getItem(K)!=="light")document.body.classList.add("dark")}catch(e){document.body.classList.add("dark")}paint();})();</script>
-<div class="container">
-  <div class="top-bar hidden" id="top-bar">
-    <div class="top-meta"><span id="lesson-tag">Kula Revise &middot; Grade 12 &middot; Vietnam</span><span class="top-count" id="step-count"></span></div>
-    <div class="track"><div class="fill" id="fill"></div></div>
-  </div>
-  <div id="stage"></div>
-  <div class="nav hidden" id="nav">
-    <button class="btn-secondary" id="back-btn">&larr; Back</button>
-    <button class="btn-primary" id="next-btn">Continue &rarr;</button>
-  </div>
-</div>
-
+<button id="kula-mode-toggle" type="button" onclick="kulaToggle()" aria-label="Switch light or dark mode"><span id="kmt">Dark</span></button>
+<div class="container"><div id="stage"></div></div>
 <script>
-/* kula: re-entry guard. Every declaration below is function scoped, so a
-   viewer that re-runs this script re-initialises instead of throwing a
-   redeclaration SyntaxError and leaving FLOW undefined. */
-(function(){
-const COVER = {
-  "eyebrow": "Kula Revise &middot; Grade 12 History &middot; Vietnam",
-  "title": "Build the Skeleton",
-  "lines": [
-    "Fifty marks. One hour. Three pages.",
-    "Eight decisions.",
-    "By the end, you have the whole answer mapped out."
-  ],
-  "begin": "Begin",
-  "time": "About 30 minutes. Lesson 5 of 5.",
-  "skip": false
+function kulaToggle(){var d=document.body.classList.toggle("dark");document.getElementById("kmt").textContent=d?"Light":"Dark";}
+var esc=function(s){var d=document.createElement('div');d.textContent=s;return d.innerHTML;};
+var frame={}, idx=0;
+
+var COVER={
+  eyebrow:"Kula Revise \u00b7 Grade 12 History \u00b7 Vietnam",
+  title:"Build the Skeleton",
+  lines:["Fifty marks. One hour. Three pages.","You will not write the essay here.","You build its skeleton: the line, the points, the evidence, the verdict.","Then you take the frame away and write it in your own words."]
 };
 
-const RESULTS = {
-  "eyebrow": "Your report",
-  "title": "Where you stand",
-  "done": {
-    "label": "Lesson 5 complete",
-    "title": "Build the Skeleton",
-    "text": "Tap Done to see What Stuck."
-  },
-  "footer": "Next: Knowledge check 2, to see what stuck across the five lessons.",
-  "bands": {
-    "excellent": "You can tell an argument from a narrative every time. Now write this question out in full, by hand, in one hour.",
-    "strong": "Strong. Reread the screen on what the skeleton leaves out, then write the question out under timed conditions.",
-    "solid": "The shape is there. Go back over the decisions you missed, then write the answer out in full.",
-    "patchy": "Worth running Lesson 5 again. The versions that describe rather than argue are the ones to watch.",
-    "start": "Go back to the lesson your weakest answers came from, then take Lesson 5 again."
-  }
-};
+var STEPS=[
+  {type:'cover'},
+  {type:'pick', tag:'Introduction · your line of argument', prog:'Line of argument',
+    h2:'Choose your line of argument',
+    intro:'Every mark in this essay hangs off one sentence: the line you argue. The question says critically discuss, so your line has to take a side and be ready to weigh the other. Pick the sentence that argues, not the one that only describes.',
+    correct:0,
+    opts:[
+      "Vietcong tactics never beat the United States in battle, but they made every American strategy cost more than it was worth, and that broke America's will to keep fighting.",
+      "The Vietcong used a range of tactics during the war, and the United States replied with several strategies of its own.",
+      "Vietcong tactics beat the United States in the field and won the war through greater firepower."
+    ],
+    expl:"<b>The first argues.</b> It admits the Vietcong never won in the field, then says what their tactics did do, so the essay has a line to hold. The second only describes. The third takes the wrong line: the facts show the Vietcong never won a stand-up battle, so you would be arguing against your own evidence.",
+    save:function(s){frame.arg=s.opts[0];}},
 
-const FLOW = [
-  {
-    "type": "content",
-    "tag": "The exam question",
-    "html": "<h2>This Is Exam Standard</h2><p>This is a full essay question at exam standard, built against the way the exam is marked. Not a watered down version dressed up to look hard.</p><div class=\"source\"><div class=\"source-attr\">Grade 12 History, Paper 1 essay. 50 marks.</div><div class=\"source-body\"><p>During the Vietnam War between 1963 and 1975, Vietcong tactics left United States strategy unable to succeed. Critically discuss this statement and use relevant historical evidence to support your line of argument. [50]</p></div></div><p>Fifty marks. Roughly an hour, and about three pages by hand.</p><p>You start from the question. Over the next eight decisions you build a skeleton: a topic sentence and its evidence for every paragraph. Writing it out in full is the job you take away.</p>"
-  },
-  {
-    "type": "content",
-    "tag": "The command word",
-    "html": "<h2>Critically Discuss</h2><p>Two words decide how you write this, and most lost marks in essay questions start with reading them wrongly.</p><p>Critically discuss asks you to weigh a statement and reach a verdict on it. One line of argument, held from the first paragraph to the last. Not a list of everything you know about the war.</p><p>Now notice what this command word demands that others do not. Critically discuss requires a counter-argument: a paragraph that puts the case against your own line, before you answer it. Leave that out and the answer is incomplete however much evidence is in it.</p><p>The other thing the question fixes is the range, 1963 to 1975. Geneva, Diem and the Strategic Hamlet programme are background you can use in the opening. They are not body paragraphs.</p>",
-    "terms": [
-      {
-        "term": "Critically discuss",
-        "def": "Weigh a statement, put the case against it, and reach a verdict that says how far it holds. The counter-argument is required, not optional."
-      },
-      {
-        "term": "Line of argument",
-        "def": "The single position your whole answer defends, stated in the opening and held to the end."
-      }
+  {type:'pick', tag:'Body 1 · American strategy', prog:'Body 1 of 3 · claim',
+    h2:'Body paragraph 1: the topic sentence',
+    intro:'Your first body paragraph is about American strategy. Every paragraph opens with a claim that pushes your line forward. Pick the topic sentence that takes a clear position.',
+    correct:0,
+    opts:[
+      "American strategy was built for a war that was not being fought.",
+      "The United States used a number of military strategies during the Vietnam War.",
+      "American strategy suited the war well and came close to winning it outright."
     ],
-    "remember": "Critically discuss without a counter-argument is an incomplete answer."
-  },
-  {
-    "type": "question",
-    "level": "Argue",
-    "q": "The question says critically discuss. Which of these is what that actually asks you to do?",
-    "options": [
-      "Weigh the statement, put the case against it, and reach a verdict saying how far it holds",
-      "Explain everything you know about Vietcong tactics and American strategies between 1963 and 1975",
-      "Decide whether the statement is true or false and defend that without conceding anything",
-      "Describe the main events of the war in order and let the reader draw their own conclusion"
+    expl:"<b>The first takes a side:</b> the strategy was aimed at the wrong war. The second only describes that strategies existed. The third takes the wrong line: the facts show the strategy missing its target, not nearly winning.",
+    save:function(s){frame.b1ts=s.opts[0];}},
+  {type:'evidence', tag:'Body 1 · American strategy', prog:'Body 1 of 3 · evidence',
+    h2:'Now choose the evidence',
+    ts:"American strategy was built for a war that was not being fought.",
+    intro:'A claim is only worth the evidence under it. Tap Use it for the facts that back this exact point. Leave out the real facts that belong to a different paragraph.',
+    items:[
+      {t:"Rolling Thunder bombed the North (1965-68) to cut its supply lines", use:true},
+      {t:"Search and Destroy sweeps hunted an enemy that could not be found", use:true},
+      {t:"Huge firepower needed a target, but the enemy hid among the people", use:true},
+      {t:"A conventional war of massed troops and artillery, against a hidden enemy", use:true},
+      {t:"Tet reached the US embassy grounds in Saigon, 1968", use:false, off:"that is the Tet point, another paragraph"},
+      {t:"Agent Orange was sprayed from 1962 to 1971", use:false, off:"that is the countryside response"}
     ],
-    "correct": 0,
-    "explanation": "Option {opt0} is the whole instruction, and the counter-argument is the part people drop. Option {opt2} is tempting because a firm answer feels strong, and a stance really is required. But critically discuss wants a balanced verdict, not a yes or a no with the doubts hidden. Say how far, and let the other side get a fair hearing before you answer it."
-  },
-  {
-    "type": "content",
-    "tag": "Your eight decisions",
-    "html": "<h2>Eight Paragraphs, Three Versions of Each</h2><p>For each paragraph you get three versions. Each one is a topic sentence with its evidence attached, which is the bone of a paragraph rather than the whole of it. One argues. One tells the story without arguing from it, which is the commonest way strong answers lose marks. One takes a line the evidence will not carry.</p><p>Pick one and it joins your answer, which grows down the screen as you go.</p><p>The question does not fix which way your answer should come out. Either line can score full marks. The choice of line is yours. Defending it is not.</p>"
-  },
-  {
-    "type": "question",
-    "level": "Argue",
-    "build": true,
-    "part": "Vietcong tactics never defeated the United States in the field, but they made every American strategy cost more than it achieved, and that is what broke the American willingness to continue. The statement holds to a great extent, though the North's regular army and its Soviet and Chinese supply belong in the answer too.",
-    "q": "Decision 1. Your opening has to take a stance. Which one does?",
-    "options": [
-      "Vietcong tactics never defeated the United States in the field, but they made every American strategy cost more than it achieved, and that is what broke the American willingness to continue. The statement holds to a great extent, though the North's regular army and its Soviet and Chinese supply belong in the answer too.",
-      "Between 1963 and 1975 the United States fought a long and costly war in Vietnam against both the Vietcong and the North Vietnamese army, using bombing campaigns such as Rolling Thunder, chemical defoliants including Agent Orange, and search and destroy operations, before withdrawing its forces under the Paris Peace Accords and watching Saigon fall in April 1975.",
-      "American strategies were never made ineffective by Vietcong tactics at any point in the war. The United States won every significant engagement it fought, including the Tet Offensive of January 1968, and Saigon fell in the end only because Congress cut off the money, so Vietcong tactics made no real difference to the outcome."
+    expl:"<b>The four strategy facts back this point.</b> Tet and Agent Orange are real and correctly dated, which is what tempts you, but each belongs to a different paragraph. Matching the fact to the exact point is the evidence skill.",
+    link:"Strength only counts once it has a target, and there was no target to hit.",
+    save:function(s){frame.b1ev=s.chosen; frame.b1link=s.link;}},
+
+  {type:'pick', tag:'Body 2 · Vietcong tactics', prog:'Body 2 of 3 · claim',
+    h2:'Body paragraph 2: the topic sentence',
+    intro:'Your second body paragraph turns to Vietcong tactics. This is where you show why the American strategy could not land. Pick the topic sentence that takes a clear position.',
+    correct:0,
+    opts:[
+      "Vietcong tactics were built to turn that weakness against the Americans.",
+      "The Vietcong used guerrilla tactics throughout the war against American forces.",
+      "Vietcong tactics relied on large open battles and head-on clashes with US troops."
     ],
-    "correct": 0,
-    "explanation": "{opt0} says how far and names what the rest of the answer will prove, so it takes a stance. {opt1} is all true and picks no side, so everything after it can only tell the story. {opt2} is arguable, but it throws away four lessons of evidence and leaves you nothing to give the other side."
-  },
-  {
-    "type": "question",
-    "level": "Evidence",
-    "build": true,
-    "part": "The contest was shaped before the first marine landed. Geneva divided Vietnam at the seventeenth parallel in 1954, the elections promised for 1956 were never held, and the National Liberation Front formed in the south in 1960 with most of its members drawn from the south itself. America arrived to fight an invasion that was largely an insurgency.",
-    "q": "Decision 2. Your context paragraph. Which one sets up your line instead of filling space?",
-    "options": [
-      "The contest was shaped before the first marine landed. Geneva divided Vietnam at the seventeenth parallel in 1954, the elections promised for 1956 were never held, and the National Liberation Front formed in the south in 1960 with most of its members drawn from the south itself. America arrived to fight an invasion that was largely an insurgency.",
-      "Vietnam was divided at Geneva in 1954 and reunification elections were promised for 1956. Ngo Dinh Diem led the southern state from 1955 until his own army officers overthrew and killed him in November 1963. The National Liberation Front, known to its enemies as the Vietcong, was founded in 1960, and the first American combat troops landed at Da Nang in March 1965.",
-      "The war began as a straightforward invasion of South Vietnam by the North Vietnamese army across the seventeenth parallel. The fighters operating in the south were all sent down from Hanoi and had no local base of support of any kind, which is exactly why American strategy was right to concentrate on bombing the north from March 1965 onwards."
+    expl:"<b>The first connects to your argument:</b> the tactics were made to beat the strategy you just described. The second only describes. The third takes the wrong line: the Vietcong avoided open battle, they did not seek it.",
+    save:function(s){frame.b2ts=s.opts[0];}},
+  {type:'evidence', tag:'Body 2 · Vietcong tactics', prog:'Body 2 of 3 · evidence',
+    h2:'Now choose the evidence',
+    ts:"Vietcong tactics were built to turn that weakness against the Americans.",
+    intro:'Same job again: tap Use it for the facts that prove this point about their tactics. Leave out the ones that belong to another paragraph.',
+    items:[
+      {t:"Booby traps, hit-and-run raids and sabotage", use:true},
+      {t:"Tunnel systems dug too narrow for American soldiers", use:true},
+      {t:"They took the lead without ever holding ground", use:true},
+      {t:"They hid among the people, so American firepower hit civilians", use:true},
+      {t:"Rolling Thunder bombed the North from March 1965", use:false, off:"that is American strategy"},
+      {t:"The Soviet Union and China supplied the North with modern weapons", use:false, off:"that is the counter-argument"}
     ],
-    "correct": 0,
-    "explanation": "{opt0} and {opt1} carry almost the same facts. The difference is the closing claim, which says what all those facts are for. {opt2} says the southern fighters were sent from Hanoi. They weren't, and the membership figure you met in Lesson 1 is what settles it."
-  },
-  {
-    "type": "question",
-    "level": "Evidence",
-    "build": true,
-    "part": "American strategy was designed for a war that was not being fought. Operation Rolling Thunder bombed North Vietnam from March 1965 to 1968 on the theory that northern supply was, in Johnson's words, the heartbeat of the war. The Strategic Hamlet programme had already failed from 1962 because it assumed the guerrillas came from outside the villages when they lived inside them.",
-    "q": "Decision 3. American strategy. Which version makes the facts do a job?",
-    "options": [
-      "American strategy was designed for a war that was not being fought. Operation Rolling Thunder bombed North Vietnam from March 1965 to 1968 on the theory that northern supply was, in Johnson's words, the heartbeat of the war. The Strategic Hamlet programme had already failed from 1962 because it assumed the guerrillas came from outside the villages when they lived inside them.",
-      "From March 1965 Operation Rolling Thunder bombed North Vietnam and the campaign continued until 1968. American troop numbers rose from the three and a half thousand marines who landed at Da Nang in March 1965 to more than half a million men by 1968. The Strategic Hamlet programme had begun back in 1962, moving peasants into fortified settlements ringed with wire and guards.",
-      "Rolling Thunder and the Strategic Hamlet programme were both sound and effective policies that did what was asked of them. They cut the flow of supplies coming down from the north almost completely and separated the guerrillas from the villages they depended on, so the war was effectively won by 1967 before politics at home intervened to throw the result away."
+    expl:"<b>The four tactics facts build this point.</b> Rolling Thunder is American strategy, and Soviet and Chinese weapons are the other side you will raise next. Keep each fact in the paragraph it actually proves.",
+    link:"They never had to win a battle. They only had to make the war cost more than it was worth.",
+    save:function(s){frame.b2ev=s.chosen; frame.b2link=s.link;}},
+
+  {type:'pick', tag:'Body 3 · counter-argument', prog:'Body 3 of 3 · claim',
+    h2:'Body paragraph 3: the other side',
+    intro:'The command word is critically discuss, so you must put the other side before you decide. Pick the topic sentence that states the opposing case fairly.',
+    correct:0,
+    opts:[
+      "The claim cannot be pushed all the way.",
+      "There were several other things going on in the war besides Vietcong tactics.",
+      "Vietcong tactics were the only reason the United States lost the war."
     ],
-    "correct": 0,
-    "explanation": "{opt0} names the mismatch first and then attaches the evidence to it, so every fact is working. {opt1} is accurate and well dated, and it still only lists. {opt2} says the hamlets separated the guerrillas from the villages. They didn't, which is why the programme was abandoned, and you can say so."
-  },
-  {
-    "type": "question",
-    "level": "Weigh",
-    "build": true,
-    "part": "Vietcong tactics were built to exploit exactly that mismatch. Booby traps, hit and run raids, sabotage and tunnel systems dug too narrow for American soldiers gave the guerrillas the initiative without ever holding ground, and supply came down the Ho Chi Minh Trail through Laos and Cambodia. Firepower needs a target, and these tactics existed to deny it one.",
-    "q": "Decision 4. Vietcong tactics. Which version weighs what they achieved?",
-    "options": [
-      "Vietcong tactics were built to exploit exactly that mismatch. Booby traps, hit and run raids, sabotage and tunnel systems dug too narrow for American soldiers gave the guerrillas the initiative without ever holding ground, and supply came down the Ho Chi Minh Trail through Laos and Cambodia. Firepower needs a target, and these tactics existed to deny it one.",
-      "The Vietcong used guerrilla tactics throughout the years of the war. These included booby traps, hit and run attacks, sabotage of American installations and extensive underground tunnel systems at places such as Cu Chi. Supplies and weapons reached them from North Vietnam along the Ho Chi Minh Trail, which ran through neighbouring Laos and Cambodia rather than straight across the border.",
-      "Vietcong tactics were crude and improvised and had very little real effect on American operations in the field. The guerrillas avoided open battle simply because they could not win one, and the tunnels and the booby traps were a nuisance to patrols rather than a serious military problem, so American strategy was never meaningfully disrupted by any of it."
+    expl:"<b>The first states the other side fairly,</b> which is what the counter-argument step needs. The second only describes. The third overstates your own case, so there is nothing left to weigh.",
+    save:function(s){frame.c1ts=s.opts[0];}},
+  {type:'evidence', tag:'Body 3 · counter-argument', prog:'Body 3 of 3 · evidence',
+    h2:'The evidence for the other side',
+    ts:"The claim cannot be pushed all the way.",
+    intro:'Here you gather the strongest facts for the opposing case. Tap Use it for the ones that show other forces at work. Leave out the facts that back your own line: they cannot be the counter.',
+    items:[
+      {t:"The Soviet Union and China supplied the North with modern weapons", use:true},
+      {t:"After Tet, the North's regular army did most of the fighting", use:true},
+      {t:"Saigon finally fell to a conventional invasion in 1975", use:true},
+      {t:"Booby traps and tunnels gave the guerrillas the initiative", use:false, off:"that backs your own line, not the other side"},
+      {t:"Rolling Thunder bombed the North from 1965", use:false, off:"American strategy, not the other side"}
     ],
-    "correct": 0,
-    "explanation": "{opt0} says what the tactics denied the Americans, which is a judgement rather than a list. {opt1} names the same tactics and never says what they did. {opt2} contradicts the whole statement you are discussing, and you would have to abandon your line to defend it."
-  },
-  {
-    "type": "question",
-    "level": "Weigh",
-    "build": true,
-    "part": "The American answer made the problem worse. Operation Ranch Hand sprayed Agent Orange and Agent Blue from 1962 to 1971, napalm was used on suspected positions, and Search and Destroy sweeps destroyed villages thought to be sheltering fighters. More than five million villagers were driven from their homes, and every village hit made the recruiting argument for the other side.",
-    "q": "Decision 5. The American response in the countryside. Which version judges it?",
-    "options": [
-      "The American answer made the problem worse. Operation Ranch Hand sprayed Agent Orange and Agent Blue from 1962 to 1971, napalm was used on suspected positions, and Search and Destroy sweeps destroyed villages thought to be sheltering fighters. More than five million villagers were driven from their homes, and every village hit made the recruiting argument for the other side.",
-      "Operation Ranch Hand ran from 1962 through to 1971, spraying chemical defoliants that included both Agent Orange and Agent Blue over forest and farmland. Napalm was used against suspected Vietcong positions and Search and Destroy operations swept villages right across the south. Millions of Vietnamese villagers were displaced from their land and their farms during these long years of the war.",
-      "The chemical spraying and the Search and Destroy operations were the most successful part of the whole American strategy in Vietnam. They removed the forest cover the guerrillas depended on and turned the rural population decisively against the Vietcong, which is the reason the communists were no longer able to recruit anywhere in the countryside after 1967."
+    expl:"<b>These three facts are the strongest case for the other side.</b> The booby traps and Rolling Thunder back your own argument, so they cannot be the counter. Then you rebut: the tactics had already broken American will years before the tanks arrived.",
+    link:"But the tactics had already broken American willingness to keep paying, years before the tanks rolled into Saigon.",
+    save:function(s){frame.c1ev=s.chosen; frame.c1link=s.link;}},
+
+  {type:'pick', tag:'Conclusion · the verdict', prog:'Verdict',
+    h2:'Land your verdict',
+    intro:'A conclusion weighs both sides and still decides. Pick the verdict that does both. Avoid the absolute one and the one that sits on the fence.',
+    correct:0,
+    opts:[
+      "The statement holds to a great extent, though not completely: the Vietcong never won in the field, and Soviet and Chinese weapons and the North's regular army mattered, but their tactics broke American will to keep paying, which is what the war was decided on.",
+      "Vietcong tactics won the war completely and on their own.",
+      "Vietcong tactics had some successes and some failures, so it is hard to say whether they mattered."
     ],
-    "correct": 0,
-    "explanation": "{opt0} ends on the consequence, which is the point of the paragraph: the tactics recruited for the other side. {opt1} carries the same facts and stops before the judgement. {opt2} says the countryside turned against the Vietcong, and the five million villagers forced from their homes are the evidence you use against it."
-  },
-  {
-    "type": "question",
-    "level": "Evidence",
-    "build": true,
-    "part": "Tet turned a military defeat into a political weapon. In January 1968 the Vietcong and North Vietnamese struck more than a hundred towns and reached the American embassy grounds in Saigon, and although they were driven back with enormous losses, the attack destroyed the claim that the end was near. Johnson halted most of the bombing and stood down on 31 March 1968.",
-    "q": "Decision 6. Tet. Which version explains why a defeat mattered?",
-    "options": [
-      "Tet turned a military defeat into a political weapon. In January 1968 the Vietcong and North Vietnamese struck more than a hundred towns and reached the American embassy grounds in Saigon, and although they were driven back with enormous losses, the attack destroyed the claim that the end was near. Johnson halted most of the bombing and stood down on 31 March 1968.",
-      "The Tet Offensive was launched at the end of January 1968, during the Vietnamese new year holiday. More than a hundred towns and cities across the south were attacked at once, including the grounds of the American embassy in Saigon itself. The Vietcong suffered very heavy losses in the fighting that followed and the attacks were all driven back within a matter of weeks.",
-      "Tet was a clear American military victory and it should be treated as one in any answer. The Vietcong were destroyed as an effective fighting force and never properly recovered from it, so the offensive proves that American strategy was working exactly as intended, and any claim that it damaged opinion at home confuses the battlefield with the newspapers."
-    ],
-    "correct": 0,
-    "explanation": "{opt0} admits the military defeat and then says what the attack destroyed anyway, which is the hardest move in this essay. {opt1} reports the same offensive and never explains why it mattered. {opt2} scores the war purely on the fighting, and Johnson standing down nine weeks later is the answer you give to that."
-  },
-  {
-    "type": "question",
-    "level": "Weigh",
-    "build": true,
-    "part": "The claim cannot be pushed all the way. North Vietnam received modern weapons from the Soviet Union and China, so this was never a peasant army improvising alone. After Tet the North's regular army did most of the fighting, and Saigon fell in April 1975 to a conventional armoured offensive rather than to guerrillas. American strategy also failed for American reasons, including young conscripts and a body count that measured the wrong thing.",
-    "q": "Decision 7. Your counter-argument, which this command word requires. Which one does the job?",
-    "options": [
-      "The claim cannot be pushed all the way. North Vietnam received modern weapons from the Soviet Union and China, so this was never a peasant army improvising alone. After Tet the North's regular army did most of the fighting, and Saigon fell in April 1975 to a conventional armoured offensive rather than to guerrillas. American strategy also failed for American reasons, including young conscripts and a body count that measured the wrong thing.",
-      "North Vietnam received substantial military support from both the Soviet Union and China throughout the years of the war, including modern weapons. The Vietcong lost very heavily indeed during the Tet Offensive of January 1968 and the North's regular army took over much of the fighting afterwards. American soldiers serving in Vietnam were young men, with an average age of only nineteen, and most of them served a single tour of about one year before going home again.",
-      "There is really no case on the other side of this question that is worth making at all. Vietcong tactics on their own explain everything about the outcome of the war, and Soviet and Chinese weapons, the North Vietnamese regular army and the political decisions taken in Washington made no meaningful contribution whatever to the defeat of the United States in Vietnam."
-    ],
-    "correct": 0,
-    "explanation": "{opt0} puts the strongest case against your own line and does not back away from it, which is exactly what critically discuss asks for. {opt1} has the right facts and never turns them into an objection. {opt2} refuses to admit anything, and refusing the counter-argument is the one thing this command word will not allow."
-  },
-  {
-    "type": "question",
-    "level": "Argue",
-    "build": true,
-    "part": "The statement therefore holds to a great extent, though not completely. Vietnamisation withdrew American troops while the bombing widened into Cambodia in 1970, the Paris Peace Accords of 27 January 1973 let America leave without requiring the North to, and Saigon fell on 30 April 1975. Vietcong tactics did not defeat the American army. They defeated the American willingness to go on paying for it.",
-    "q": "Decision 8. Your conclusion. Which one lands a verdict?",
-    "options": [
-      "The statement therefore holds to a great extent, though not completely. Vietnamisation withdrew American troops while the bombing widened into Cambodia in 1970, the Paris Peace Accords of 27 January 1973 let America leave without requiring the North to, and Saigon fell on 30 April 1975. Vietcong tactics did not defeat the American army. They defeated the American willingness to go on paying for it.",
-      "Nixon announced the policy of Vietnamisation in November 1969 and American troops were then withdrawn from Vietnam in stages over the following years. The Paris Peace Accords were signed on 27 January 1973 and the last American combat troops left the country that same year. Saigon itself fell to North Vietnamese forces on 30 April 1975 and the whole country was then united under a single communist government.",
-      "In conclusion, Vietcong tactics were entirely responsible for the American defeat in Vietnam and nothing else played any part in it at all. The bombing campaigns, the Soviet and Chinese supply of weapons, the collapse of public opinion at home and the cutting of American aid to Saigon made no difference whatsoever to the final outcome of the war."
-    ],
-    "correct": 0,
-    "explanation": "{opt0} answers the question straight away and then backs it up. To a great extent though not completely is the how far the question asked for. {opt1} tells the story of the ending and never returns to the question. {opt2} contradicts the counter-argument you just wrote one paragraph earlier."
-  },
-  {
-    "type": "runsum",
-    "tag": "Your running summary",
-    "heading": "The Skeleton of Your Answer",
-    "label": "Your running summary",
-    "html": "<p>Every line here is a topic sentence with the evidence that belongs to it. That is a skeleton, not a finished essay. Read it once for the shape: a stance in the opening, dated evidence in every paragraph, one paragraph arguing against you, and a verdict at the end that says how far.</p>",
-    "outro": "Now read the next three screens. They tell you what this leaves out and what to do with it."
-  },
-  {
-    "type": "content",
-    "tag": "Before you go",
-    "html": "<h2>What You Are Holding Is a Skeleton</h2><p>It has the right shape. It is not a full answer, and it is worth knowing exactly why.</p><p>It runs to about 494 words. A fifty mark essay wants roughly a thousand to twelve hundred, or about three pages. Yours needs to be around twice this length.</p><p>Two or three facts a paragraph. A strong answer carries more than that and explains each one instead of listing it. The counter-argument gets a single paragraph here. In the exam give it three or four sentences and then answer it.</p><p>And almost no figures survived. No half a million troops, no seven million tonnes of bombs, no fifty eight thousand American dead, no five million displaced.</p>"
-  },
-  {
-    "type": "content",
-    "tag": "Before you go",
-    "html": "<h2>What It Leaves Out</h2><p>All of this is in Lessons 1 to 4 and none of it reached the answer:</p><p>Containment and the Domino Theory. The Gulf of Tonkin Resolution of 7 August 1964. The Buddhist protests of 1963 and the coup that killed Diem. Kennedy's sixteen thousand military advisers. The body count, and what it measured. The average age of nineteen and the single one year tour. My Lai in March 1968 and the one conviction. The Washington marches of 1965 and 1969. Kent State on 4 May 1970. The War Powers Resolution. Watergate and the aid that never came.</p><p>Put the ones that serve your line into the paragraph where they belong.</p>"
-  },
-  {
-    "type": "content",
-    "tag": "Before you go",
-    "html": "<h2>Do Not Learn This Off By Heart</h2><p>This answer fits one question. The paper will not ask that question again.</p><p>Here is a second question on the same content, set the way Paper 1 sets it:</p><div class=\"source\"><div class=\"source-attr\">Grade 12 History, Paper 1 essay. 50 marks.</div><div class=\"source-body\"><p>United States military strategy against the Vietcong in the Vietnam War (1960s to 1970s) could not prevent Vietnam from becoming a communist state. Do you agree with the statement? Use relevant evidence to support your line of argument. [50]</p></div></div><p>Same war, same facts, a different question. The subject has flipped: this one asks about American strategies, not Vietcong tactics. It wants a yes or a no with reasons rather than a how far. And the range opens in 1960, so Diem and the founding of the National Liberation Front move out of the background and into the answer.</p><p>Most of your evidence still works. Your line does not. Learn the evidence and the four summary sentences, then rebuild the argument to fit whatever is on the paper in front of you. A memorised answer also reads like one.</p>"
-  }
+    expl:"<b>The first weighs and still decides.</b> It admits the limits (no field victory, foreign weapons) and lands on the judgement the command word wants. The second is absolute; the third sits on the fence. Listing good and bad without deciding throws away your conclusion.",
+    save:function(s){frame.verdict=s.opts[0];}},
+
+  {type:'frame'}
 ];
 
-// ---- identity of the five skill/tier labels ----
-const CHIP = {
-  Argue:{cls:"chip-argue"}, Evidence:{cls:"chip-evidence"}, Weigh:{cls:"chip-weigh"},
-  instinct:{cls:"chip-instinct"}
-};
-const SPINE = ["Argue","Evidence","Weigh"];
-
-const stage = document.getElementById("stage");
-const nav = document.getElementById("nav");
-const topBar = document.getElementById("top-bar");
-const nextBtn = document.getElementById("next-btn");
-const backBtn = document.getElementById("back-btn");
-
-const state = {
-  idx: -1,                 // -1 = cover
-  answers: {},             // qIdx -> chosen content index (mcq) or serialized (interactive)
-  revealed: {},            // qIdx -> bool
-  order: {},               // qIdx -> shuffled content-index array
-  carRead: {},             // stepIdx -> Set of read card indices
-  interState: {},          // qIdx -> working state for order/sort
-  poppedBuild: {},         // qIdx -> bool (running-summary popup already shown)
-};
-
-const buildIds = FLOW.map((f,i)=>f.build?i:null).filter(i=>i!==null);
-const assessedIds = FLOW.map((f,i)=>(f.type==="question"&&f.level)?i:null).filter(i=>i!==null);
-
-function esc(s){
-  return String(s).replace(/[&<>"]/g, (c, i, str) => {
-    if(c === "&"){
-      // leave a real HTML entity intact (e.g. &middot; &amp; &#8635;)
-      const rest = str.slice(i);
-      if(/^&(#\d+|#x[0-9a-fA-F]+|[a-zA-Z]+);/.test(rest)) return "&";
-    }
-    return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];
-  });
-}
-
-// {optN} -> the letter option N carries after shuffle
-function resolveOpts(text, order){
-  if(!text) return text;
-  return text.replace(/\{opt(\d+)\}/g,(m,n)=>{
-    const p = order ? order.indexOf(parseInt(n,10)) : -1;
-    return p>=0 ? String.fromCharCode(65+p) : m;
-  });
-}
-
-// ============ COVER ============
-function renderCover(){
-  topBar.classList.add("hidden");
-  nav.classList.add("hidden");
-  const lines = (COVER.lines||[]).map(l=>`<span>${esc(l)} </span>`).join("");
-  stage.innerHTML = `
-    <div class="cover">
-      <div class="cover-eyebrow">${COVER.eyebrow||""}</div>
-      <h1 class="cover-title">${esc(COVER.title||"")}</h1>
-      <div class="flourish"></div>
-      <div class="cover-line" id="cover-line">${lines}</div>
-      <button class="btn-begin" id="begin-btn">${COVER.begin||"Begin"} <span class="sa">&rarr;</span></button>
-      ${COVER.time?`<div class="cover-time">${esc(COVER.time)}</div>`:""}
-      ${COVER.skip!==false?`<button class="skip-link" id="skip-btn">Skip the opening if you have done this lesson before</button>`:""}
-    </div>`;
-  const spans = [...document.querySelectorAll("#cover-line span")];
-  spans.forEach((s,i)=>setTimeout(()=>s.classList.add("vis"), 350*(i+1)));
-  document.getElementById("begin-btn").addEventListener("click",()=>{ state.idx=0; render(); });
-  const skip = document.getElementById("skip-btn");
-  if(skip) skip.addEventListener("click",()=>{ state.idx = firstContentIdx(); render(); });
-}
-function firstContentIdx(){
-  const i = FLOW.findIndex(f=>f.type==="content"||f.type==="carousel"||f.type==="stat");
-  return i<0?0:i;
-}
-
-// ============ STORY HOOK ============
-function renderStory(item){
-  const lines = item.lines.map((l,i)=>{
-    const last = i===item.lines.length-1 ? " last" : "";
-    return `<div class="story-line${last}">${esc(l)}</div>`;
-  }).join("");
-  stage.innerHTML = `
-    <div class="story">
-      <div class="story-num">${esc(item.marker)}</div>
-      <div class="story-unit">${esc(item.markerLabel||"")}</div>
-      <div class="story-rule"></div>
-      ${lines}
-    </div>`;
-  const els = [...stage.querySelectorAll(".story-line")];
-  nextBtn.disabled = true;
-  els.forEach((el,i)=>setTimeout(()=>{
-    el.classList.add("vis");
-    if(i===els.length-1) nextBtn.disabled = false;
-  }, 650*(i+1)));
-}
-
-// ============ STATIC CONTENT ============
-// Key-terms strip: label + one expandable chip per term.
-function ktStrip(terms){
-  if(!terms || !terms.length) return "";
-  const chips = terms.map(t=>`<details class="kt-term"><summary>${esc(t.term)}</summary><div class="kt-def">${esc(t.def)}</div></details>`).join("");
-  return `<div class="kt"><div class="kt-label">Key terms &middot; tap to open</div><div class="kt-row">${chips}</div></div>`;
-}
-function rememberBox(text){
-  if(!text) return "";
-  return `<details class="remember"><summary>Remember it like this</summary><div class="disc-body">${text}</div></details>`;
-}
-
-function renderContent(item){
-  stage.innerHTML = `<div class="card">${item.tag?`<div class="stage-tag">${esc(item.tag)}</div>`:""}${item.html}${rememberBox(item.remember)}${ktStrip(item.terms)}</div>`;
-  bindToggles();
-}
-
-// ============ CAROUSEL ============
-function renderCarousel(item){
-  const cards = item.cards;
-  if(!state.carRead[state.idx]) state.carRead[state.idx] = new Set([0]);
-  const read = state.carRead[state.idx];
-  const pos = state.interState[state.idx]?.pos || 0;
-  read.add(pos);
-  const c = cards[pos];
-  const body = typeof c==="string" ? c : `<span class="cc-lead">${esc(c.lead)}</span>${esc(c.body)}`;
-  const dots = cards.map((_,i)=>`<span class="car-dot ${read.has(i)?"read":""} ${i===pos?"here":""}"></span>`).join("");
-  const allRead = read.size===cards.length;
-  stage.innerHTML = `
-    <div class="card">
-      ${item.tag?`<div class="stage-tag">${esc(item.tag)}</div>`:""}
-      ${item.heading?`<h2>${esc(item.heading)}</h2>`:""}
-      <div class="car-wrap">
-        <div class="car-prompt" id="car-prompt">${allRead?`That is all ${cards.length}. Continue is unlocked.`:`Tap the arrows to read all ${cards.length}. Continue unlocks when you have.`}</div>
-        <div class="car-frame"><div class="car-card">${body}</div></div>
-        <div class="car-nav">
-          <div class="car-dots">${dots}</div>
-          <div class="car-count">${pos+1} / ${cards.length}</div>
-          <div class="car-btns">
-            <button class="car-btn" id="car-prev" ${pos===0?"disabled":""}>&larr;</button>
-            <button class="car-btn" id="car-next" ${pos===cards.length-1?"disabled":""}>&rarr;</button>
-          </div>
-        </div>
-      </div>
-      ${ktStrip(item.terms)}
-    </div>`;
-  nextBtn.disabled = !allRead;
-  const setPos=(p)=>{ state.interState[state.idx]={pos:p}; renderCarousel(item); };
-  const pv=document.getElementById("car-prev"), nx=document.getElementById("car-next");
-  if(pv) pv.addEventListener("click",()=>setPos(Math.max(0,pos-1)));
-  if(nx) nx.addEventListener("click",()=>setPos(Math.min(cards.length-1,pos+1)));
-}
-
-// ============ STAT STRIP ============
-function renderStat(item){
-  const stats = item.stats.map(s=>`<div class="stat"><div class="stat-num">${esc(s.num)}</div><div class="stat-label">${esc(s.label)}</div></div>`).join("");
-  stage.innerHTML = `
-    <div class="card">
-      ${item.tag?`<div class="stage-tag">${esc(item.tag)}</div>`:""}
-      ${item.heading?`<h2>${esc(item.heading)}</h2>`:""}
-      ${item.lead?`<p>${item.lead}</p>`:""}
-      <div class="stat-strip">${stats}</div>
-      ${ktStrip(item.terms)}
-    </div>`;
-}
-
-// ============ SOURCE ============
-function renderSource(item){
-  const s=item.source;
-  stage.innerHTML = `
-    <div class="card">
-      ${item.tag?`<div class="stage-tag">${esc(item.tag)}</div>`:""}
-      ${item.html||""}
-      <div class="source">
-        <div class="source-attr">${s.attr}</div>
-        <div class="source-body">${s.body}</div>
-        ${s.toggle?`<button class="toggle-btn" data-toggle>${s.toggleLabel||"What does this actually mean?"}</button><div class="toggle-body">${s.toggle}</div>`:""}
-      </div>
-      ${ktStrip(item.terms)}
-    </div>`;
-  bindToggles();
-}
-
-// ============ QUESTION (mcq / order / sort) ============
-function renderQuestion(item){
-  if(item.mode==="order") return renderOrder(item);
-  if(item.mode==="sort") return renderSort(item);
-  return renderMCQ(item);
-}
-
-function renderMCQ(item){
-  const answered = state.revealed[state.idx];
-  if(!state.order[state.idx]){
-    const a=item.options.map((_,i)=>i);
-    for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}
-    state.order[state.idx]=a;
-  }
-  const order=state.order[state.idx];
-  const chip = item.level ? `<span class="chip ${CHIP[item.level].cls}">${item.level}</span>` : `<span class="chip chip-instinct">Instinct</span>`;
-  let opts="";
-  order.forEach((orig,pos)=>{
-    let cls="option", mark="";
-    if(answered){
-      if(orig===item.correct){ cls+=" correct"; mark=`<span class="opt-mark">&#10003;</span>`; }
-      else if(orig===state.answers[state.idx]){ cls+=" wrong"; mark=`<span class="opt-mark">&#10007;</span>`; }
-      else cls+=" dimmed";
-    } else if(state.answers[state.idx]===orig){ cls+=" selected"; }
-    opts+=`<button class="${cls}" data-orig="${orig}" ${answered?"disabled":""}><span class="opt-letter">${String.fromCharCode(65+pos)}</span><span class="opt-text">${item.options[orig]}</span>${mark}</button>`;
-  });
-  stage.innerHTML = `
-    <div class="card">
-      <div class="q-meta">${chip}</div>
-      <div class="q-text">${item.q}</div>
-      <div class="options">${opts}</div>
-      ${answered?`<div class="explanation"><div class="expl-label">Why</div><div class="expl-text">${resolveOpts(item.explanation, order)}</div></div>`:""}
-    </div>`;
-  if(!answered){
-    stage.querySelectorAll(".option").forEach(b=>b.addEventListener("click",()=>{
-      state.answers[state.idx]=parseInt(b.dataset.orig,10);
-      state.revealed[state.idx]=true;
-      render();
-    }));
-  }
-  syncNav(true);
-}
-
-// order: tap to place into a numbered list, tap placed to remove; Check when all placed
-function renderOrder(item){
-  const answered = state.revealed[state.idx];
-  const st = state.interState[state.idx] || (state.interState[state.idx]={placed:[]});
-  const placed = st.placed;                       // array of content indices in chosen order
-  const remaining = item.items.map((_,i)=>i).filter(i=>!placed.includes(i));
-  let placedHtml = placed.map((ci,pos)=>{
-    let cls="inter-item inter-placed";
-    if(answered){ cls = "inter-item "+(ci===item.answer[pos]?"ok":"no"); }
-    return `<button class="${cls}" data-placed="${ci}" ${answered?"disabled":""}><span class="rank">${pos+1}</span><span>${esc(item.items[ci])}</span></button>`;
-  }).join("");
-  let poolHtml = remaining.map(ci=>`<button class="inter-item" data-pool="${ci}"><span class="rank">&bull;</span><span>${esc(item.items[ci])}</span></button>`).join("");
-  stage.innerHTML = `
-    <div class="card">
-      <div class="q-meta"><span class="chip ${item.level?CHIP[item.level].cls:"chip-instinct"}">${item.level||"Instinct"}</span></div>
-      <div class="q-text">${item.q}</div>
-      <div class="inter">
-        <div class="inter-pool" id="placed">${placedHtml||`<div style="color:var(--fade);font-size:0.9rem;padding:0.4rem 0;">Tap an event below to start putting them in order.</div>`}</div>
-        ${remaining.length?`<div style="height:1px;background:rgba(var(--ink-c),0.14);margin:0.9rem 0;"></div><div class="inter-pool" id="pool">${poolHtml}</div>`:""}
-      </div>
-      ${answered?`<div class="explanation"><div class="expl-label">Why</div><div class="expl-text">${resolveOpts(item.explanation,null)}</div></div>`:""}
-    </div>`;
-  if(!answered){
-    stage.querySelectorAll("[data-pool]").forEach(b=>b.addEventListener("click",()=>{ placed.push(parseInt(b.dataset.pool,10)); renderOrder(item); }));
-    stage.querySelectorAll("[data-placed]").forEach(b=>b.addEventListener("click",()=>{ const ci=parseInt(b.dataset.placed,10); st.placed=placed.filter(x=>x!==ci); renderOrder(item); }));
-  }
-  const allPlaced = placed.length===item.items.length;
-  syncNavInteractive(allPlaced, answered, ()=>{
-    state.answers[state.idx]=placed.slice();
-    state.revealed[state.idx]=true; render();
-  });
-}
-
-// sort: two columns, tap an item's column button to place, tap placed to remove
-function renderSort(item){
-  const answered = state.revealed[state.idx];
-  const st = state.interState[state.idx] || (state.interState[state.idx]={col:{}});
-  const col = st.col;                              // content index -> 0/1
-  const unplaced = item.items.map((_,i)=>i).filter(i=>!(i in col));
-  const colCards = (which)=>item.items.map((it,ci)=>{
-    if(col[ci]!==which) return "";
-    let cls="inter-item inter-placed";
-    if(answered) cls="inter-item "+(item.answer[ci]===which?"ok":"no");
-    return `<button class="${cls}" data-un="${ci}" ${answered?"disabled":""}><span>${esc(it)}</span></button>`;
-  }).join("");
-  const pool = unplaced.map(ci=>`
-    <div class="inter-item" style="flex-direction:column;align-items:stretch;cursor:default;">
-      <span>${esc(item.items[ci])}</span>
-      <div class="sort-btns">
-        <button class="sort-place" data-place="${ci}" data-col="0">${esc(item.cols[0])}</button>
-        <button class="sort-place" data-place="${ci}" data-col="1">${esc(item.cols[1])}</button>
-      </div>
-    </div>`).join("");
-  stage.innerHTML = `
-    <div class="card">
-      <div class="q-meta"><span class="chip ${item.level?CHIP[item.level].cls:"chip-instinct"}">${item.level||"Instinct"}</span></div>
-      <div class="q-text">${item.q}</div>
-      <div class="inter">
-        <div class="sort-cols">
-          <div class="sort-col"><h4>${esc(item.cols[0])}</h4>${colCards(0)}</div>
-          <div class="sort-col"><h4>${esc(item.cols[1])}</h4>${colCards(1)}</div>
-        </div>
-        ${unplaced.length?`<div style="height:1px;background:rgba(var(--ink-c),0.14);margin:0.9rem 0;"></div><div class="inter-pool">${pool}</div>`:""}
-      </div>
-      ${answered?`<div class="explanation"><div class="expl-label">Why</div><div class="expl-text">${resolveOpts(item.explanation,null)}</div></div>`:""}
-    </div>`;
-  if(!answered){
-    stage.querySelectorAll("[data-place]").forEach(b=>b.addEventListener("click",()=>{ col[parseInt(b.dataset.place,10)]=parseInt(b.dataset.col,10); renderSort(item); }));
-    stage.querySelectorAll("[data-un]").forEach(b=>b.addEventListener("click",()=>{ delete col[parseInt(b.dataset.un,10)]; renderSort(item); }));
-  }
-  const allPlaced = unplaced.length===0;
-  syncNavInteractive(allPlaced, answered, ()=>{
-    state.answers[state.idx]=Object.assign({},col);
-    state.revealed[state.idx]=true; render();
-  });
-}
-
-// ============ RUNNING SUMMARY (own screen) ============
-function renderRunsum(item){
-  const parts = buildIds.filter(i=>i<=state.idx && state.revealed[i]).map(i=>FLOW[i].part);
-  const freshIdx = parts.length-1;
-  const lis = parts.map((p,i)=>`<li class="${i===freshIdx?"fresh":""}">${esc(p)}</li>`).join("");
-  stage.innerHTML = `
-    <div class="card">
-      <div class="stage-tag">${esc(item.tag||"Your running summary")}</div>
-      ${item.heading?`<h2>${esc(item.heading)}</h2>`:""}
-      ${item.html?item.html:""}
-      <div class="runsum"><div class="runsum-label">${esc(item.label||"Your running summary")}</div><ol>${lis}</ol></div>
-      ${item.outro?`<p class="runsum-outro">${item.outro}</p>`:""}
-    </div>`;
-}
-
-// ============ POPUP after a build question ============
-function showBuildPop(part){
-  const back=document.createElement("div");
-  back.className="pop-back";
-  back.innerHTML=`<div class="pop"><div class="pop-label">Added</div><div class="pop-text">${esc(part)}</div><button class="pop-btn" id="pop-ok">Got it</button></div>`;
-  document.body.appendChild(back);
-  document.getElementById("pop-ok").addEventListener("click",()=>back.remove());
-}
-
-// ============ NAV ============
-function syncNav(isQuestion){
-  nav.classList.remove("hidden");
-  backBtn.disabled=false;
-  backBtn.innerHTML = state.idx===0 ? "&larr; Back to the start" : "&larr; Back";
-  nextBtn.style.display="";
-  nextBtn.disabled = isQuestion ? !state.revealed[state.idx] : false;
-  nextBtn.innerHTML = state.idx===FLOW.length-1 ? "See results &rarr;" : "Continue &rarr;";
-}
-// interactive items: replace Continue with a Check button until answered
-function syncNavInteractive(canCheck, answered, onCheck){
-  nav.classList.remove("hidden");
-  backBtn.disabled=false;
-  backBtn.innerHTML = state.idx===0 ? "&larr; Back to the start" : "&larr; Back";
-  if(answered){
-    nextBtn.style.display="";
-    nextBtn.disabled=false;
-    nextBtn.innerHTML = state.idx===FLOW.length-1 ? "See results &rarr;" : "Continue &rarr;";
-    nextBtn.onclick = defaultNext;
-  } else {
-    nextBtn.style.display="";
-    nextBtn.disabled=!canCheck;
-    nextBtn.innerHTML="Check &rarr;";
-    nextBtn.onclick = ()=>{ onCheck(); };
-  }
-}
-
-function defaultNext(){
-  // fire the running-summary popup when leaving a build question
-  const cur=FLOW[state.idx];
-  if(cur && cur.build && state.revealed[state.idx] && !state.poppedBuild[state.idx]){
-    state.poppedBuild[state.idx]=true;
-    showBuildPop(cur.part);
-  }
-  if(state.idx<FLOW.length-1){ state.idx++; render(); } else showResults();
-}
-
-nextBtn.onclick = defaultNext;
-backBtn.addEventListener("click",()=>{
-  if(state.idx<=0){ state.idx=-1; renderCover(); }
-  else { state.idx--; render(); }
-});
-
-// ============ RENDER DISPATCH ============
+var stage=document.getElementById('stage');
+function next(){ idx++; render(); window.scrollTo(0,0); }
 function render(){
-  window.scrollTo({top:0,behavior:"instant"});
-  if(state.idx===-1){ renderCover(); return; }
-  topBar.classList.remove("hidden");
-  document.getElementById("step-count").textContent=`Step ${state.idx+1} of ${FLOW.length}`;
-  document.getElementById("fill").style.width=((state.idx+1)/FLOW.length*100)+"%";
-  const item=FLOW[state.idx];
-  nextBtn.onclick = defaultNext;
-  switch(item.type){
-    case "story": renderStory(item); syncNav(false); break;
-    case "carousel": renderCarousel(item); /* nav handled inside */ syncNavCarousel(); break;
-    case "stat": renderStat(item); syncNav(false); break;
-    case "source": renderSource(item); syncNav(false); break;
-    case "question": renderQuestion(item); break;
-    case "runsum": renderRunsum(item); syncNav(false); break;
-    default: renderContent(item); syncNav(false);
+  var s=STEPS[idx];
+  if(s.type==='cover') return renderCover();
+  if(s.type==='pick') return renderPick(s);
+  if(s.type==='evidence') return renderEvidence(s);
+  if(s.type==='frame') return renderFrame();
+}
+function prog(s){ return s.prog?('<div class="cap-prog">Step '+idx+' of '+(STEPS.length-2)+' \u00b7 '+s.prog+'</div>'):''; }
+
+function renderCover(){
+  var lines=COVER.lines.map(function(l){return '<span>'+esc(l)+'</span>';}).join('<br>');
+  stage.innerHTML='<div class="cover"><div class="cover-eyebrow">'+COVER.eyebrow+'</div>'+
+    '<h1 class="cover-title">'+esc(COVER.title)+'</h1><div class="flourish"></div>'+
+    '<div class="cover-line" id="cover-line">'+lines+'</div>'+
+    '<button class="btn-begin" id="begin-btn">Begin <span class="sa">&rarr;</span></button></div>';
+  var sp=[].slice.call(document.querySelectorAll('#cover-line span'));
+  sp.forEach(function(x,i){setTimeout(function(){x.classList.add('vis');}, 300+i*450);});
+  document.getElementById('begin-btn').onclick=next;
+}
+
+function renderPick(s){
+  var chosen=null;
+  function draw(){
+    var opts=s.opts.map(function(o,i){
+      var cls='option', mark='';
+      if(chosen!==null){ cls+=' selected'; if(i===s.correct){cls+=' correct'; mark='<span class="opt-mark">&#10003;</span>';} else if(i===chosen){cls+=' wrong'; mark='<span class="opt-mark">&#10007;</span>';} else {cls+=' dimmed';} }
+      return '<button class="'+cls+'" data-i="'+i+'"'+(chosen!==null?' disabled':'')+'><span class="opt-letter">'+String.fromCharCode(65+i)+'</span><span class="opt-text">'+esc(o)+'</span>'+mark+'</button>';
+    }).join('');
+    var tail = chosen!==null ? '<div class="explanation"><div class="expl-label">Why</div><div class="expl-text">'+s.expl+'</div></div><div class="cap-actions" style="margin-top:1.2rem"><button class="btn-primary" id="cont">Continue</button></div>' : '';
+    stage.innerHTML=prog(s)+'<div class="card"><div class="stage-tag">'+s.tag+'</div><h2>'+esc(s.h2)+'</h2><p class="cap-intro">'+s.intro+'</p><div class="options">'+opts+'</div>'+tail+'</div>';
+    if(chosen===null){ [].forEach.call(document.querySelectorAll('.option'),function(b){ b.onclick=function(){ chosen=+b.getAttribute('data-i'); draw(); }; }); }
+    else { document.getElementById('cont').onclick=function(){ s.save(s); next(); }; }
   }
-}
-function syncNavCarousel(){
-  nav.classList.remove("hidden");
-  backBtn.disabled=false;
-  backBtn.innerHTML = state.idx===0 ? "&larr; Back to the start" : "&larr; Back";
-  nextBtn.style.display="";
-  nextBtn.innerHTML = state.idx===FLOW.length-1 ? "See results &rarr;" : "Continue &rarr;";
-  // disabled state already set inside renderCarousel
+  draw();
 }
 
-function bindToggles(){
-  stage.querySelectorAll("[data-toggle]").forEach(b=>b.addEventListener("click",()=>{
-    b.nextElementSibling.classList.toggle("open");
-  }));
+function renderEvidence(s){
+  var done=false, state={};
+  function draw(){
+    var rows=s.items.map(function(it,i){
+      var cls='evrow', right='';
+      if(state[i]&&!done) cls+=' use';
+      if(done){ var u=!!state[i]; if(it.use&&u){cls+=' ok';right='<span class="evtag y">USE</span>';} else if(it.use&&!u){cls+=' miss';right='<span class="evtag y">USE</span>';} else if(!it.use&&u){cls+=' wrong';right='<span class="evtag n">LEAVE OUT</span>';} else {right='<span class="evtag n">LEAVE OUT</span>';} }
+      var off = (done&&it.off)?'<span class="off">'+esc(it.off)+'</span>':'';
+      var ctrl = done ? right : '<button class="evtoggle" data-i="'+i+'">'+(state[i]?'Using \u2713':'Use it')+'</button>';
+      return '<div class="'+cls+'"><span class="evtext">'+esc(it.t)+off+'</span>'+ctrl+'</div>';
+    }).join('');
+    var foot;
+    if(!done) foot='<div class="cap-actions"><button class="btn-primary" id="chk" disabled>Check my selection</button></div>';
+    else foot='<div class="explanation"><div class="expl-label">Why</div><div class="expl-text">'+s.expl+'</div></div><div class="cap-actions" style="margin-top:1.2rem"><button class="btn-primary" id="cont">Continue</button></div>';
+    stage.innerHTML=prog(s)+'<div class="card"><div class="stage-tag">'+s.tag+'</div><h2>'+esc(s.h2)+'</h2>'+
+      '<div class="yourpoint"><b>Your point</b>'+esc(s.ts)+'</div><p class="cap-intro">'+s.intro+'</p><div class="evlist">'+rows+'</div>'+foot+'</div>';
+    if(!done){
+      [].forEach.call(document.querySelectorAll('.evtoggle'),function(b){ b.onclick=function(){ var i=+b.getAttribute('data-i'); state[i]=!state[i]; draw(); }; });
+      document.getElementById('chk').disabled=Object.keys(state).filter(function(k){return state[k];}).length===0;
+      document.getElementById('chk').onclick=function(){ done=true; draw(); };
+    } else {
+      s.chosen=s.items.filter(function(x,i){return state[i]&&x.use;}).map(function(x){return x.t;});
+      if(s.chosen.length===0) s.chosen=s.items.filter(function(x){return x.use;}).map(function(x){return x.t;});
+      document.getElementById('cont').onclick=function(){ s.save(s); next(); };
+    }
+  }
+  draw();
 }
 
-// ============ RESULTS ============
-function showResults(){
-  topBar.classList.add("hidden");
-  nav.classList.add("hidden");
-  let correct=0;
-  assessedIds.forEach(i=>{ if(isRight(i)) correct++; });
-  const total=assessedIds.length;
-  const pct = total?Math.round(correct/total*100):0;
-  let band="", desc="";
-  if(pct>=85){ band="Excellent"; desc=RESULTS.bands.excellent; }
-  else if(pct>=70){ band="Strong"; desc=RESULTS.bands.strong; }
-  else if(pct>=55){ band="Solid"; desc=RESULTS.bands.solid; }
-  else if(pct>=40){ band="Patchy"; desc=RESULTS.bands.patchy; }
-  else { band="Start again"; desc=RESULTS.bands.start; }
-  const rows=SPINE.map(sp=>{
-    const ids=assessedIds.filter(i=>FLOW[i].level===sp);
-    if(!ids.length) return "";
-    const g=ids.filter(i=>isRight(i)).length;
-    const p=Math.round(g/ids.length*100);
-    return `<div class="bd-row"><div class="bd-name">${sp}</div><div class="bd-bar"><div class="bd-fill" style="width:${p}%"></div></div><div class="bd-score">${g}/${ids.length}</div></div>`;
-  }).join("");
-  const parts=buildIds.filter(i=>state.revealed[i]).map(i=>FLOW[i].part);
-  const runsum = parts.length?`<div class="breakdown"><div class="breakdown-label">Your running summary</div><ol style="margin:0;padding-left:1.3rem;">${parts.map(p=>`<li style="font-size:0.98rem;line-height:1.62;margin-bottom:0.6rem;">${esc(p)}</li>`).join("")}</ol></div>`:"";
-  stage.innerHTML = `
-    <div class="results-head">
-      <div class="results-eyebrow">${RESULTS.eyebrow||"Lesson report"}</div>
-      <h1 class="results-title">${esc(RESULTS.title||"Where you stand")}</h1>
-    </div>
-    <div class="score-row">
-      <div class="score-block"><div class="score-num">${correct}<span class="score-den">/${total}</span></div><div class="score-label">Correct</div></div>
-      <div class="score-block"><div class="score-num">${pct}<span class="score-den">%</span></div><div class="score-label">Accuracy</div></div>
-      <div class="score-block"><div class="score-word">${band}</div><div class="score-label">Band</div></div>
-    </div>
-    <div class="grade-desc">${desc}</div>
-    <div class="breakdown"><div class="breakdown-label">By skill</div>${rows}</div>
-    ${runsum}
-    <div class="results-actions">
-      <button class="btn-secondary" id="restart-btn">Restart lesson</button>
-      <button class="btn-primary" id="finish-btn">Finish &rarr;</button>
-    </div>
-    ${RESULTS.footer?`<div style="text-align:center;margin-top:1.1rem;font-size:0.92rem;color:var(--fade);">${esc(RESULTS.footer)}</div>`:""}`;
-  document.getElementById("restart-btn").addEventListener("click",()=>{
-    state.idx=-1; state.answers={}; state.revealed={}; state.order={}; state.carRead={}; state.interState={}; state.poppedBuild={};
-    renderCover();
-  });
-  document.getElementById("finish-btn").addEventListener("click",()=>{
-    const back=document.createElement("div");
-    back.className="pop-back";
-    const D = RESULTS.done||{};
-    back.innerHTML=`<div class="pop"><div class="pop-label">${esc(D.label||"Lesson complete")}</div>${D.title?`<h3 style="margin:.4rem 0 .2rem;font-size:1.05rem;">${esc(D.title)}</h3>`:""}<div class="pop-text">${esc(D.text||"Tap Done to continue.")}</div><button class="pop-btn" id="fin-ok">Done</button></div>`;
-    document.body.appendChild(back);
-    document.getElementById("fin-ok").addEventListener("click",()=>back.remove());
-  });
+function renderFrame(){
+  function ul(a){return '<ul>'+(a||[]).map(function(x){return '<li>'+esc(x)+'</li>';}).join('')+'</ul>';}
+  var f='<div class="fp"><div class="frole">Line of argument</div><div class="fts">'+esc(frame.arg)+'</div></div>'+
+    '<div class="fp"><div class="frole">Body 1 \u00b7 political policies</div><div class="fts">'+esc(frame.b1ts)+'</div><div class="flabel">Evidence</div>'+ul(frame.b1ev)+'<div class="flink">Link: '+esc(frame.b1link)+'</div></div>'+
+    '<div class="fp"><div class="frole">Body 2 \u00b7 economic policies</div><div class="fts">'+esc(frame.b2ts)+'</div><div class="flabel">Evidence</div>'+ul(frame.b2ev)+'<div class="flink">Link: '+esc(frame.b2link)+'</div></div>'+
+    '<div class="fp"><div class="frole">Body 3 \u00b7 counter-argument</div><div class="fts">'+esc(frame.c1ts)+'</div><div class="flabel">Evidence for the other side</div>'+ul(frame.c1ev)+'<div class="flink">Rebuttal: '+esc(frame.c1link)+'</div></div>'+
+    '<div class="fp"><div class="frole">Verdict</div><div class="fts">'+esc(frame.verdict)+'</div></div>';
+  stage.innerHTML='<div class="card"><div class="stage-tag">Your writing frame</div><h2>Take this away and write it up</h2>'+
+    '<p class="cap-intro">This is the shape of a top essay: a clear line, three paragraphs each with a claim and its evidence, and a verdict that decides. You built every choice in it.</p>'+
+    '<div class="frame">'+f+'</div>'+
+    '<div class="writeup"><b>Now write the essay in full, in your own words.</b><div class="wsub">The frame gives you the shape and the facts. Turning these notes into full sentences, in the exam, is the part only you can do.</div></div></div>';
 }
 
-function isRight(i){
-  const item=FLOW[i]; const ans=state.answers[i];
-  if(ans===undefined) return false;
-  if(item.mode==="order") return JSON.stringify(ans)===JSON.stringify(item.answer);
-  if(item.mode==="sort"){ return item.items.every((_,ci)=>ans[ci]===item.answer[ci]); }
-  return ans===item.correct;
-}
-
-renderCover();
-})();
+render();
 </script>
 </body>
 </html>
