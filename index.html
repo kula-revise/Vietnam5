@@ -218,7 +218,7 @@
   .results-actions button { flex: 1; }
   .hidden { display: none !important; }
 
-#kula-mode-toggle, .mode-toggle { min-height: 44px !important; padding-top: 0.6rem !important; padding-bottom: 0.6rem !important; box-sizing: border-box !important; }
+body { padding-bottom: 5.25rem !important; } #kula-mode-toggle, .mode-toggle { min-height: 44px !important; padding-top: 0.6rem !important; padding-bottom: 0.6rem !important; box-sizing: border-box !important; } #next-btn, #finish-btn, #cap-advance, #kdone-btn, #kretake-btn, #cont, #chk, #begin-btn, #back-btn, #redo-btn, #restart-btn, #skip-btn, .btn-primary, .btn-secondary, .btn-small { position: relative; z-index: 10000; }
 #next-btn, #begin-btn, #kdone-btn, #kretake-btn { min-height: 44px !important; }
 /* vt-cta */
 body:not(.bright) .btn-primary, body:not(.bright) #next-btn { color: #12150f !important; }
@@ -263,13 +263,13 @@ body:not(.bright) .evrow.use .evtoggle{color:#12150f;}
 #kula-mode-toggle #kmt-icon svg{width:1rem;height:1rem;display:block;}
 </style>
 </head>
-<body>
+<body class="bright">
 <script>/* kula: LMS embed events. "completed" fires once, when the learner reaches the closing screen. "advance" fires from the final button. */
 (function(){var sentCompleted=false;window.kulaEmbed=function(ev){if(ev==="completed"){if(sentCompleted)return;sentCompleted=true;}try{window.parent.postMessage({type:"lms-embed-event",version:"1.0",payload:{event:ev}},"*");}catch(e){}};})();</script>
 <button id="kula-mode-toggle" type="button" onclick="kulaToggle()" aria-label="Switch light or dark mode"><span id="kmt-icon"></span><span id="kmt-label"></span></button>
 <div class="container"><div id="stage"></div></div>
 <script>
-var K="kula-mode";var SUN="<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='4.2'/><path d='M12 1.6v2M12 20.4v2M3.6 12h-2M22.4 12h-2M5.6 5.6 4.2 4.2M19.8 19.8l-1.4-1.4M18.4 5.6l1.4-1.4M4.2 19.8l1.4-1.4'/></svg>";var MOON="<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z'/></svg>";function paint(){var d=!document.body.classList.contains("bright");var ic=document.getElementById("kmt-icon"),la=document.getElementById("kmt-label");if(ic)ic.innerHTML=d?SUN:MOON;if(la)la.textContent=d?"Light mode":"Dark mode";}window.kulaToggle=function(){document.body.classList.toggle("bright");try{localStorage.setItem(K,document.body.classList.contains("bright")?"light":"dark")}catch(e){}paint();};try{if(localStorage.getItem(K)==="light")document.body.classList.add("bright")}catch(e){}paint();
+var K="kula-theme";var SUN="<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='4.2'/><path d='M12 1.6v2M12 20.4v2M3.6 12h-2M22.4 12h-2M5.6 5.6 4.2 4.2M19.8 19.8l-1.4-1.4M18.4 5.6l1.4-1.4M4.2 19.8l1.4-1.4'/></svg>";var MOON="<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z'/></svg>";function paint(){var d=!document.body.classList.contains("bright");var ic=document.getElementById("kmt-icon"),la=document.getElementById("kmt-label");if(ic)ic.innerHTML=d?SUN:MOON;if(la)la.textContent=d?"Light mode":"Dark mode";}window.kulaToggle=function(){document.body.classList.toggle("bright");try{localStorage.setItem(K,document.body.classList.contains("bright")?"light":"dark")}catch(e){}paint();};try{if(localStorage.getItem(K)==="dark")document.body.classList.remove("bright")}catch(e){}paint();
 var esc=function(s){var d=document.createElement('div');d.textContent=s;return d.innerHTML;};
 var frame={}, idx=0;
 
@@ -284,28 +284,26 @@ var STEPS=[
   {type:'pick', tag:'Introduction · your line of argument', prog:'Line of argument',
     h2:'Choose your line of argument',
     intro:'Every mark in this essay hangs off one sentence: the line you argue. The question says critically discuss, so your line has to take a side and be ready to weigh the other. Pick the sentence that argues, not the one that only describes.',
-    correct:1,
+    correct:0,
     opts:[
-      "The Vietcong used a range of tactics, and the United States replied with strategies of its own.",
-      "The Vietcong never won a battle, but they made every American strategy cost more than it was worth.",
-      "Vietcong tactics beat the United States in the field, winning the war outright through their greater firepower and numbers."
-    
+      "Vietcong tactics never beat the United States in battle, but they made every American strategy cost more than it was worth, and that broke America's will to keep fighting.",
+      "The Vietcong used a range of tactics during the war, and the United States replied with several strategies of its own.",
+      "Vietcong tactics beat the United States in the field and won the war through greater firepower."
     ],
-    expl:"<b>The middle one argues.</b> It admits the Vietcong never won in the field, then says what their tactics did do, so your essay has a line to hold. The one above it only tells the reader that tactics existed. The last one takes the wrong line, because the facts show the Vietcong never won a stand-up battle. Argue that and you are fighting your own evidence.",
-    save:function(s){frame.arg=s.opts[s.correct];}},
+    expl:"<b>The first argues.</b> It admits the Vietcong never won in the field, then says what their tactics did do, so the essay has a line to hold. The second only describes. The third takes the wrong line: the facts show the Vietcong never won a stand-up battle, so you would be arguing against your own evidence.",
+    save:function(s){frame.arg=s.opts[0];}},
 
   {type:'pick', tag:'Body 1 · American strategy', prog:'Body 1 of 3 · claim',
     h2:'Body paragraph 1: the topic sentence',
     intro:'Your first body paragraph is about American strategy. Every paragraph opens with a claim that pushes your line forward. Pick the topic sentence that takes a clear position.',
-    correct:2,
+    correct:0,
     opts:[
-      "The United States used several military strategies in Vietnam.",
-      "American strategy suited the war and nearly won it.",
-      "American strategy was built for the wrong war altogether."
-    
+      "American strategy was built for a war that was not being fought.",
+      "The United States used a number of military strategies during the Vietnam War.",
+      "American strategy suited the war well and came close to winning it outright."
     ],
-    expl:"<b>The last one takes a side.</b> It says the strategy was aimed at the wrong war. The first only says strategies existed, which is background. The middle one takes the wrong line, because the facts show the strategy missing its target rather than nearly winning.",
-    save:function(s){frame.b1ts=s.opts[s.correct];}},
+    expl:"<b>The first takes a side:</b> the strategy was aimed at the wrong war. The second only describes that strategies existed. The third takes the wrong line: the facts show the strategy missing its target, not nearly winning.",
+    save:function(s){frame.b1ts=s.opts[0];}},
   {type:'evidence', tag:'Body 1 · American strategy', prog:'Body 1 of 3 · evidence',
     h2:'Now choose the evidence',
     ts:"American strategy was built for a war that was not being fought.",
@@ -318,22 +316,21 @@ var STEPS=[
       {t:"Tet reached the US embassy grounds in Saigon, 1968", use:false, off:"that is the Tet point, another paragraph"},
       {t:"Agent Orange was sprayed from 1962 to 1971", use:false, off:"that is the countryside response"}
     ],
-    expl:"<b>The four strategy facts back this point.</b> Tet and Agent Orange are real and correctly dated. That is what tempts you. Each belongs to a different paragraph. Match each fact to the exact point it proves. That is the evidence skill.",
+    expl:"<b>The four strategy facts back this point.</b> Tet and Agent Orange are real and correctly dated, which is what tempts you, but each belongs to a different paragraph.",
     link:"Strength only counts once it has a target, and there was no target to hit.",
     save:function(s){frame.b1ev=s.chosen; frame.b1link=s.link;}},
 
   {type:'pick', tag:'Body 2 · Vietcong tactics', prog:'Body 2 of 3 · claim',
     h2:'Body paragraph 2: the topic sentence',
     intro:'Your second body paragraph turns to Vietcong tactics. This is where you show why the American strategy could not land. Pick the topic sentence that takes a clear position.',
-    correct:1,
+    correct:0,
     opts:[
-      "The Vietcong used guerrilla tactics throughout the war against American forces.",
       "Vietcong tactics were built to turn that weakness against the Americans.",
-      "Vietcong tactics relied on open battles and head-on clashes with US troops."
-    
+      "The Vietcong used guerrilla tactics throughout the war against American forces.",
+      "Vietcong tactics relied on large open battles and head-on clashes with US troops."
     ],
-    expl:"<b>The middle one connects to your argument.</b> The tactics were made to beat the strategy you just described. The first only describes. The last takes the wrong line, because the Vietcong avoided open battle rather than seeking it.",
-    save:function(s){frame.b2ts=s.opts[s.correct];}},
+    expl:"<b>The first connects to your argument:</b> the tactics were made to beat the strategy you just described. The second only describes. The third takes the wrong line: the Vietcong avoided open battle, they did not seek it.",
+    save:function(s){frame.b2ts=s.opts[0];}},
   {type:'evidence', tag:'Body 2 · Vietcong tactics', prog:'Body 2 of 3 · evidence',
     h2:'Now choose the evidence',
     ts:"Vietcong tactics were built to turn that weakness against the Americans.",
@@ -353,15 +350,14 @@ var STEPS=[
   {type:'pick', tag:'Body 3 · counter-argument', prog:'Body 3 of 3 · claim',
     h2:'Body paragraph 3: the other side',
     intro:'The command word is critically discuss, so you must put the other side before you decide. Pick the topic sentence that states the opposing case fairly.',
-    correct:2,
+    correct:0,
     opts:[
-      "Other things were also going on in that war besides Vietcong tactics too.",
-      "Vietcong tactics were the only reason that the United States lost.",
-      "The claim cannot be pushed quite all the way, though it holds."
-    
+      "The claim cannot be pushed all the way.",
+      "There were several other things going on in the war besides Vietcong tactics.",
+      "Vietcong tactics were the only reason the United States lost the war."
     ],
-    expl:"<b>The last one states the other side fairly.</b> That is what the counter-argument step needs. The first only says other things happened, without saying what that costs your claim. The middle one overstates your own case, so there is nothing left to weigh.",
-    save:function(s){frame.c1ts=s.opts[s.correct];}},
+    expl:"<b>The first states the other side fairly,</b> which is what the counter-argument step needs. The second only describes. The third overstates your own case, so there is nothing left to weigh.",
+    save:function(s){frame.c1ts=s.opts[0];}},
   {type:'evidence', tag:'Body 3 · counter-argument', prog:'Body 3 of 3 · evidence',
     h2:'The evidence for the other side',
     ts:"The claim cannot be pushed all the way.",
@@ -373,22 +369,21 @@ var STEPS=[
       {t:"Booby traps and tunnels gave the guerrillas the initiative", use:false, off:"that backs your own line, not the other side"},
       {t:"Rolling Thunder bombed the North from 1965", use:false, off:"American strategy, not the other side"}
     ],
-    expl:"<b>These three facts are the strongest case for the other side.</b> The booby traps and Rolling Thunder back your own argument, so they cannot be the counter. Then you rebut. The tactics had already broken American will, years before the tanks arrived.",
+    expl:"<b>These three facts are the strongest case for the other side.</b> The booby traps and Rolling Thunder back your own argument, so they cannot be the counter. Then you rebut: the tactics had already broken American will years before the tanks arrived.",
     link:"But the tactics had already broken American willingness to keep paying, years before the tanks rolled into Saigon.",
     save:function(s){frame.c1ev=s.chosen; frame.c1link=s.link;}},
 
   {type:'pick', tag:'Conclusion · the verdict', prog:'Verdict',
     h2:'Land your verdict',
     intro:'A conclusion weighs both sides and still decides. Pick the verdict that does both. Avoid the absolute one and the one that sits on the fence.',
-    correct:1,
+    correct:0,
     opts:[
-      "Vietcong tactics had successes and failures, so it is very hard to say whether they mattered.",
-      "Largely, not completely. They never won in the field, and Soviet weapons mattered. Their tactics broke American will.",
-      "Vietcong tactics won the war completely and entirely on their own, without any help from anybody at all."
-    
+      "The statement holds to a great extent, though not completely: the Vietcong never won in the field, and Soviet and Chinese weapons and the North's regular army mattered, but their tactics broke American will to keep paying, which is what the war was decided on.",
+      "Vietcong tactics won the war completely and on their own.",
+      "Vietcong tactics had some successes and some failures, so it is hard to say whether they mattered."
     ],
-    expl:"<b>The middle one weighs and still decides.</b> It admits the limits, no field victory and foreign weapons, then lands on the judgement the command word asks for. The last one is absolute. The first sits on the fence: listing good and bad without deciding throws away your conclusion.",
-    save:function(s){frame.verdict=s.opts[s.correct];}},
+    expl:"<b>The first weighs and still decides.</b> It admits the limits (no field victory, foreign weapons) and lands on the judgement the command word wants. The second is absolute; the third sits on the fence. Listing good and bad without deciding throws away your conclusion.",
+    save:function(s){frame.verdict=s.opts[0];}},
 
   {type:'frame'}
 ];
