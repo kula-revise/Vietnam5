@@ -286,12 +286,12 @@ var STEPS=[
     intro:'Every mark in this essay hangs off one sentence: the line you argue. The question says critically discuss, so your line has to take a side and be ready to weigh the other. Pick the sentence that argues, not the one that only describes.',
     correct:0,
     opts:[
-      "Vietcong tactics never beat the United States in battle, but they made every American strategy cost more than it was worth, and that broke America's will to keep fighting.",
-      "The Vietcong used a range of tactics during the war, and the United States replied with several strategies of its own.",
-      "Vietcong tactics beat the United States in the field and won the war through greater firepower."
+      "Vietcong tactics never beat the Americans in battle, but they made every strategy cost more than it was worth.",
+      "The Vietcong used a range of tactics during the war, and the United States replied with strategies of its own.",
+      "Vietcong tactics beat the United States in the field, and they won the whole war through greater firepower."
     ],
-    expl:"<b>The first argues.</b> It admits the Vietcong never won in the field, then says what their tactics did do, so the essay has a line to hold. The second only describes. The third takes the wrong line: the facts show the Vietcong never won a stand-up battle, so you would be arguing against your own evidence.",
-    save:function(s){frame.arg=s.opts[0];}},
+    expl:"<b>Option {opt0} argues.</b> It admits the Vietcong never won in the field, then says what their tactics did do. That gives your essay a line to hold. Option {opt1} only describes, and a marker reading it sees narrative rather than a case. Option {opt2} takes the wrong line, because the Vietcong never won a stand-up battle. Pick it and you argue against your own evidence.",
+    save:function(s){frame.arg=s.opts[s.correct];}},
 
   {type:'pick', tag:'Body 1 · American strategy', prog:'Body 1 of 3 · claim',
     h2:'Body paragraph 1: the topic sentence',
@@ -302,8 +302,8 @@ var STEPS=[
       "The United States used a number of military strategies during the Vietnam War.",
       "American strategy suited the war well and came close to winning it outright."
     ],
-    expl:"<b>The first takes a side:</b> the strategy was aimed at the wrong war. The second only describes that strategies existed. The third takes the wrong line: the facts show the strategy missing its target, not nearly winning.",
-    save:function(s){frame.b1ts=s.opts[0];}},
+    expl:"<b>Option {opt0} takes a side.</b> It says the strategy was aimed at the wrong war, so the paragraph has a claim to prove. Option {opt1} only says strategies existed, and a fact on its own is not a claim. Option {opt2} takes the wrong line. Your evidence shows the strategy missing its target rather than nearly winning.",
+    save:function(s){frame.b1ts=s.opts[s.correct];}},
   {type:'evidence', tag:'Body 1 · American strategy', prog:'Body 1 of 3 · evidence',
     h2:'Now choose the evidence',
     ts:"American strategy was built for a war that was not being fought.",
@@ -327,10 +327,10 @@ var STEPS=[
     opts:[
       "Vietcong tactics were built to turn that weakness against the Americans.",
       "The Vietcong used guerrilla tactics throughout the war against American forces.",
-      "Vietcong tactics relied on large open battles and head-on clashes with US troops."
+      "Vietcong tactics relied on large open battles and head-on clashes with American troops."
     ],
-    expl:"<b>The first connects to your argument:</b> the tactics were made to beat the strategy you just described. The second only describes. The third takes the wrong line: the Vietcong avoided open battle, they did not seek it.",
-    save:function(s){frame.b2ts=s.opts[0];}},
+    expl:"<b>Option {opt0} connects to your argument.</b> The tactics were made to beat the strategy you described a paragraph earlier. Option {opt1} only describes, so a marker finds no claim to reward. Option {opt2} takes the wrong line, because the Vietcong avoided open battle rather than seeking it.",
+    save:function(s){frame.b2ts=s.opts[s.correct];}},
   {type:'evidence', tag:'Body 2 · Vietcong tactics', prog:'Body 2 of 3 · evidence',
     h2:'Now choose the evidence',
     ts:"Vietcong tactics were built to turn that weakness against the Americans.",
@@ -352,15 +352,15 @@ var STEPS=[
     intro:'The command word is critically discuss, so you must put the other side before you decide. Pick the topic sentence that states the opposing case fairly.',
     correct:0,
     opts:[
-      "The claim cannot be pushed all the way.",
-      "There were several other things going on in the war besides Vietcong tactics.",
-      "Vietcong tactics were the only reason the United States lost the war."
+      "The claim cannot be pushed all the way, and the reasons matter.",
+      "There were several other things going on in the war besides tactics.",
+      "Vietcong tactics were the only reason the United States lost the war at all."
     ],
-    expl:"<b>The first states the other side fairly,</b> which is what the counter-argument step needs. The second only describes. The third overstates your own case, so there is nothing left to weigh.",
-    save:function(s){frame.c1ts=s.opts[0];}},
+    expl:"<b>Option {opt0} states the other side fairly.</b> That is what the counter-argument step needs, because you can only weigh a case that has been put properly. Option {opt1} only describes, so your verdict has nothing to push against. Option {opt2} overstates your own case, and a marker reading it finds no counter-argument at all.",
+    save:function(s){frame.c1ts=s.opts[s.correct];}},
   {type:'evidence', tag:'Body 3 · counter-argument', prog:'Body 3 of 3 · evidence',
     h2:'The evidence for the other side',
-    ts:"The claim cannot be pushed all the way.",
+    ts:"The claim cannot be pushed all the way, and the reasons matter.",
     intro:'Here you gather the strongest facts for the opposing case. Tap Use it for the ones that show other forces at work. Leave out the facts that back your own line: they cannot be the counter.',
     items:[
       {t:"The Soviet Union and China supplied the North with modern weapons", use:true},
@@ -378,12 +378,12 @@ var STEPS=[
     intro:'A conclusion weighs both sides and still decides. Pick the verdict that does both. Avoid the absolute one and the one that sits on the fence.',
     correct:0,
     opts:[
-      "The statement holds to a great extent, though not completely: the Vietcong never won in the field, and Soviet and Chinese weapons and the North's regular army mattered, but their tactics broke American will to keep paying, which is what the war was decided on.",
-      "Vietcong tactics won the war completely and on their own.",
-      "Vietcong tactics had some successes and some failures, so it is hard to say whether they mattered."
+      "The statement holds to a great extent, because the tactics broke American will not its armies.",
+      "Vietcong tactics won the war completely and entirely on their own, without any real outside help.",
+      "Vietcong tactics had successes and failures, so nobody can really say whether they mattered much."
     ],
-    expl:"<b>The first weighs and still decides.</b> It admits the limits (no field victory, foreign weapons) and reaches the judgement the command word wants. The second allows no exceptions. The third refuses to choose. Listing good and bad without deciding wastes your conclusion.",
-    save:function(s){frame.verdict=s.opts[0];}},
+    expl:"<b>Option {opt0} weighs and still decides.</b> It admits the limit and names what the tactics actually broke, which is the judgement critically discuss asks for. Option {opt1} allows no exceptions, and your own body paragraphs contradict it. Option {opt2} lists without choosing. A marker reading a conclusion that will not decide gives you nothing for it.",
+    save:function(s){frame.verdict=s.opts[s.correct];}},
 
   {type:'frame'}
 ];
@@ -410,15 +410,32 @@ function renderCover(){
   document.getElementById('begin-btn').onclick=next;
 }
 
+function shuffleOrder(s){
+  if(!s._order){
+    var o=s.opts.map(function(_,i){return i;});
+    for(var i=o.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=o[i]; o[i]=o[j]; o[j]=t; }
+    s._order=o;
+  }
+  return s._order;
+}
+function resolveOpts(text,s){
+  if(!s||!s._order) return text;
+  return String(text).replace(/\{opt(\d+)\}/g,function(m,d){
+    var disp=s._order.indexOf(+d);
+    return disp<0?m:String.fromCharCode(65+disp);
+  });
+}
 function renderPick(s){
   var chosen=null;
   function draw(){
-    var opts=s.opts.map(function(o,i){
+    var order=shuffleOrder(s);
+    var opts=order.map(function(orig,i){
+      var o=s.opts[orig];
       var cls='option', mark='';
-      if(chosen!==null){ cls+=' selected'; if(i===s.correct){cls+=' correct'; mark='<span class="opt-mark">&#10003;</span>';} else if(i===chosen){cls+=' wrong'; mark='<span class="opt-mark">&#10007;</span>';} else {cls+=' dimmed';} }
-      return '<button class="'+cls+'" data-i="'+i+'"'+(chosen!==null?' disabled':'')+'><span class="opt-letter">'+String.fromCharCode(65+i)+'</span><span class="opt-text">'+esc(o)+'</span>'+mark+'</button>';
+      if(chosen!==null){ cls+=' selected'; if(orig===s.correct){cls+=' correct'; mark='<span class="opt-mark">&#10003;</span>';} else if(orig===chosen){cls+=' wrong'; mark='<span class="opt-mark">&#10007;</span>';} else {cls+=' dimmed';} }
+      return '<button class="'+cls+'" data-i="'+orig+'"'+(chosen!==null?' disabled':'')+'><span class="opt-letter">'+String.fromCharCode(65+i)+'</span><span class="opt-text">'+esc(o)+'</span>'+mark+'</button>';
     }).join('');
-    var tail = chosen!==null ? '<div class="explanation"><div class="expl-label">Why</div><div class="expl-text">'+s.expl+'</div></div><div class="cap-actions" style="margin-top:1.2rem"><button class="btn-primary" id="cont">Continue</button></div>' : '';
+    var tail = chosen!==null ? '<div class="explanation"><div class="expl-label">Why</div><div class="expl-text">'+resolveOpts(s.expl,s)+'</div></div><div class="cap-actions" style="margin-top:1.2rem"><button class="btn-primary" id="cont">Continue</button></div>' : '';
     stage.innerHTML=prog(s)+'<div class="card"><div class="stage-tag">'+s.tag+'</div><h2>'+esc(s.h2)+'</h2><p class="cap-intro">'+s.intro+'</p><div class="options">'+opts+'</div>'+tail+'</div>';
     if(chosen===null){ [].forEach.call(document.querySelectorAll('.option'),function(b){ b.onclick=function(){ chosen=+b.getAttribute('data-i'); draw(); }; }); }
     else { document.getElementById('cont').onclick=function(){ s.save(s); next(); }; }
