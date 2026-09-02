@@ -142,8 +142,8 @@
   .option:hover:not(:disabled) { background: var(--cut); border-color: var(--a1); }
   .option:disabled { cursor: default; }
   .option.selected { background: var(--cut); border-color: var(--a1); border-width: 2px; padding: 0.94rem 0.99rem; }
-  .option.correct { background: var(--opt-correct-bg); border-color: var(--a2); border-width: 2px; padding: 0.94rem 0.99rem; }
-  .option.wrong { background: var(--opt-wrong-bg); border-color: var(--clay); border-width: 2px; padding: 0.94rem 0.99rem; }
+  .option.correct { background: rgba(74,222,128,0.34); border-color: #4ADE80; border-width: 2px; padding: 0.94rem 0.99rem; }
+  .option.wrong { background: rgba(255,107,107,0.36); border-color: #FF8787; border-width: 2px; padding: 0.94rem 0.99rem; }
   .option.dimmed { opacity: 0.46; }
   .opt-letter { font-family: var(--serif); font-weight: 800; color: var(--a1); min-width: 1.1rem; }
   .opt-text { flex: 1; }
@@ -261,6 +261,43 @@ body:not(.bright) .btn-primary .sa, body:not(.bright) #next-btn .sa, body:not(.b
 body:not(.bright) .btn-primary{color:#090b11 !important;}
 body:not(.bright) .evrow.use .evtoggle{color:#090b11;}
 #kula-mode-toggle #kmt-icon svg{width:1rem;height:1rem;display:block;}
+
+/* The answer fills carry the meaning, so the words on top of them have to stay
+   legible on both fills in both modes. Before this, correct-option text kept a
+   near-white colour that sat on a light green fill at 1.22 to 1. The hue lives
+   in the fill and the border; the text is plain ink. */
+.option.correct .opt-text,
+.option-btn.correct .opt-text,
+.option.correct .opt-letter,
+.option-btn.correct .opt-letter,
+.option.correct .opt-mark,
+.option-btn.correct .opt-mark,
+.option.wrong .opt-text,
+.option-btn.wrong .opt-text,
+.option.wrong .opt-letter,
+.option-btn.wrong .opt-letter,
+.option.wrong .opt-mark,
+.option-btn.wrong .opt-mark { color: #F2F5F8 !important; opacity: 1 !important; }
+body.bright .option.correct .opt-text,
+body.bright .option-btn.correct .opt-text,
+body.bright .option.correct .opt-letter,
+body.bright .option-btn.correct .opt-letter,
+body.bright .option.correct .opt-mark,
+body.bright .option-btn.correct .opt-mark,
+body.bright .option.wrong .opt-text,
+body.bright .option-btn.wrong .opt-text,
+body.bright .option.wrong .opt-letter,
+body.bright .option-btn.wrong .opt-letter,
+body.bright .option.wrong .opt-mark,
+body.bright .option-btn.wrong .opt-mark { color: #101418 !important; opacity: 1 !important; }
+
+/* Light mode fill for a unit whose base palette is the dark one. Without this
+   the light view borrows the dark tint: still green and still red, but a
+   different green and red from the other units. */
+body.bright .option.correct, body.bright .option-btn.correct {
+  background: rgba(34,197,94,0.30) !important; border-color: #15803D !important; }
+body.bright .option.wrong, body.bright .option-btn.wrong {
+  background: rgba(239,68,68,0.28) !important; border-color: #DC2626 !important; }
 </style>
 </head>
 <body class="bright">
@@ -269,7 +306,7 @@ body:not(.bright) .evrow.use .evtoggle{color:#090b11;}
 <button id="kula-mode-toggle" type="button" onclick="kulaToggle()" aria-label="Switch light or dark mode"><span id="kmt-icon"></span><span id="kmt-label"></span></button>
 <div class="container"><div id="stage"></div></div>
 <script>
-var K="kula-theme-2";var SUN="<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='4.2'/><path d='M12 1.6v2M12 20.4v2M3.6 12h-2M22.4 12h-2M5.6 5.6 4.2 4.2M19.8 19.8l-1.4-1.4M18.4 5.6l1.4-1.4M4.2 19.8l1.4-1.4'/></svg>";var MOON="<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z'/></svg>";function paint(){var d=!document.body.classList.contains("bright");var ic=document.getElementById("kmt-icon"),la=document.getElementById("kmt-label");if(ic)ic.innerHTML=d?SUN:MOON;if(la)la.textContent=d?"Light mode":"Dark mode";}window.kulaToggle=function(){document.body.classList.toggle("bright");try{localStorage.setItem(K,document.body.classList.contains("bright")?"light":"dark")}catch(e){}paint();};try{if(localStorage.getItem(K)==="dark")document.body.classList.remove("bright")}catch(e){}paint();
+var K="kula-mode";var SUN="<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='4.2'/><path d='M12 1.6v2M12 20.4v2M3.6 12h-2M22.4 12h-2M5.6 5.6 4.2 4.2M19.8 19.8l-1.4-1.4M18.4 5.6l1.4-1.4M4.2 19.8l1.4-1.4'/></svg>";var MOON="<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z'/></svg>";function paint(){var d=!document.body.classList.contains("bright");var ic=document.getElementById("kmt-icon"),la=document.getElementById("kmt-label");if(ic)ic.innerHTML=d?SUN:MOON;if(la)la.textContent=d?"Light mode":"Dark mode";}window.kulaToggle=function(){document.body.classList.toggle("bright");try{localStorage.setItem(K,document.body.classList.contains("bright")?"light":"dark")}catch(e){}paint();};try{var _km=localStorage.getItem(K);if(_km==="light")document.body.classList.add("bright");else if(_km==="dark")document.body.classList.remove("bright");}catch(e){}paint();
 var esc=function(s){var d=document.createElement('div');d.textContent=s;return d.innerHTML;};
 var frame={}, idx=0;
 
@@ -292,6 +329,21 @@ var STEPS=[
     ],
     expl:"<b>Option {opt0} argues.</b> It admits the Vietcong never won in the field, then says what their tactics did do. That gives your essay a line to hold. Option {opt1} only describes, and a marker reading it sees narrative rather than a case. Option {opt2} takes the wrong line, because the Vietcong never won a stand-up battle. Pick it and you argue against your own evidence.",
     save:function(s){frame.arg=s.opts[s.correct];}},
+  {
+    "type": "pick",
+    "tag": "Introduction · the ground you are arguing on",
+    "prog": "Context",
+    "h2": "Now set the context",
+    "intro": "A line of argument needs ground under it. One short paragraph, placing the war before you start proving anything. Pick the context your line will actually use.",
+    "correct": 0,
+    "opts": [
+      "Vietnam had been fighting colonial powers since before 1945, so the Americans arrived into a war already being fought their opponents' way.",
+      "Vietnam is a country in South East Asia with a long coastline, a tropical climate and a population that was largely rural in the 1960s.",
+      "The Cold War divided the world into two camps after 1945, and by the 1980s the Soviet Union was struggling to hold its own alliance together."
+    ],
+    "expl": "Option {opt0} gives you ground your line stands on. It explains why the Vietcong already knew this war and the Americans did not. Option {opt1} is true and does nothing, because geography does not tell a marker why the tactics worked. Option {opt2} runs past 1975 and out of the question's range, so it earns nothing however accurate it is."
+  ,
+    save:function(s){frame.ctx=s.opts[s.correct];}},
 
   {type:'pick', tag:'Body 1 · American strategy', prog:'Body 1 of 3 · claim',
     h2:'Body paragraph 1: the topic sentence',
@@ -302,7 +354,7 @@ var STEPS=[
       "The United States used a number of military strategies during the Vietnam War.",
       "American strategy suited the war well and came close to winning it outright."
     ],
-    expl:"<b>Option {opt0} takes a side.</b> It says the strategy was aimed at the wrong war, so the paragraph has a claim to prove. Option {opt1} only says strategies existed, and a fact on its own is not a claim. Option {opt2} takes the wrong line. Your evidence shows the strategy missing its target rather than nearly winning.",
+    expl:"<b>Option {opt0} takes a side.</b> It says the strategy was aimed at the wrong war, so the paragraph has a claim to prove. Option {opt1} only says strategies existed, and a fact on its own is not a claim. A marker reads that as narrative and gives you nothing for it. Option {opt2} takes the wrong line. Your evidence shows the strategy missing its target rather than nearly winning.",
     save:function(s){frame.b1ts=s.opts[s.correct];}},
   {type:'evidence', tag:'Body 1 · American strategy', prog:'Body 1 of 3 · evidence',
     h2:'Now choose the evidence',
@@ -475,6 +527,7 @@ function renderEvidence(s){
 function renderFrame(){
   function ul(a){return '<ul>'+(a||[]).map(function(x){return '<li>'+esc(x)+'</li>';}).join('')+'</ul>';}
   var f='<div class="fp"><div class="frole">Line of argument</div><div class="fts">'+esc(frame.arg)+'</div></div>'+
+    '<div class="fp"><div class="frole">Context</div><div class="fts">'+esc(frame.ctx)+'</div></div>'+
     '<div class="fp"><div class="frole">Body 1 \u00b7 political policies</div><div class="fts">'+esc(frame.b1ts)+'</div><div class="flabel">Evidence</div>'+ul(frame.b1ev)+'<div class="flink">Link: '+esc(frame.b1link)+'</div></div>'+
     '<div class="fp"><div class="frole">Body 2 \u00b7 economic policies</div><div class="fts">'+esc(frame.b2ts)+'</div><div class="flabel">Evidence</div>'+ul(frame.b2ev)+'<div class="flink">Link: '+esc(frame.b2link)+'</div></div>'+
     '<div class="fp"><div class="frole">Body 3 \u00b7 counter-argument</div><div class="fts">'+esc(frame.c1ts)+'</div><div class="flabel">Evidence for the other side</div>'+ul(frame.c1ev)+'<div class="flink">Rebuttal: '+esc(frame.c1link)+'</div></div>'+
